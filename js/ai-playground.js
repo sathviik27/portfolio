@@ -53,6 +53,10 @@ class AIPlayground {
         this.canvas.height = 250;
         this.clearCanvas();
 
+        window.addEventListener('themechange', (e) => {
+            this.handleThemeChange(e.detail?.theme);
+        });
+
         const getPos = (e) => {
             const rect = this.canvas.getBoundingClientRect();
             const clientX = e.touches ? e.touches[0].clientX : e.clientX;
@@ -77,6 +81,9 @@ class AIPlayground {
             const pos = getPos(e);
             this.strokePoints.push(pos);
 
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+            const strokeColor = isLight ? '#1D1D1F' : '#FFFFFF';
+
             // Smooth Bézier drawing for natural ink strokes
             const pts = this.strokePoints;
             if (pts.length > 2) {
@@ -88,7 +95,7 @@ class AIPlayground {
                 this.ctx.beginPath();
                 this.ctx.moveTo(prev.x, prev.y);
                 this.ctx.quadraticCurveTo(prev.x, prev.y, midX, midY);
-                this.ctx.strokeStyle = '#FFFFFF';
+                this.ctx.strokeStyle = strokeColor;
                 this.ctx.lineWidth = 15;
                 this.ctx.lineCap = 'round';
                 this.ctx.lineJoin = 'round';
@@ -136,15 +143,27 @@ class AIPlayground {
         this.initDigitPrototypes();
     }
 
+    handleThemeChange() {
+        if (this.canvas && this.ctx) {
+            this.clearCanvas();
+            this.resetPredictions();
+        }
+        if (this.lossCanvas && this.lossCtx) {
+            this.drawLossGraph();
+        }
+    }
+
     drawDot(x, y) {
-        this.ctx.fillStyle = '#FFFFFF';
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        this.ctx.fillStyle = isLight ? '#1D1D1F' : '#FFFFFF';
         this.ctx.beginPath();
         this.ctx.arc(x, y, 7.5, 0, Math.PI * 2);
         this.ctx.fill();
     }
 
     clearCanvas() {
-        this.ctx.fillStyle = '#000000';
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        this.ctx.fillStyle = isLight ? '#FFFFFF' : '#000000';
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
