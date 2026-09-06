@@ -1,7 +1,8 @@
 /**
  * Apple-Grade Minimalist Application Controller
- * Handles dynamic rendering, interactive modals, project filters,
- * blog reading view, Web Audio sound synthesis, and copy-to-clipboard.
+ * Sathvik - Dayananda Sagar University (DSU)
+ * Handles dynamic rendering, interactive Bento toolkit,
+ * blog reading view, Web Audio sound synthesis, theme toggling, and copy pills.
  */
 
 // Synthesized Web Audio Sound System (Subtle Acoustic Feedback)
@@ -87,19 +88,15 @@ window.UI_AUDIO = new MinimalistAudio();
 class App {
     constructor() {
         this.data = PORTFOLIO_DATA;
-        this.activeFilter = 'all';
         this.init();
     }
 
     init() {
-        this.renderHeroStats();
         this.renderCoursework();
-        this.renderSkills();
-        this.renderProjects();
+        this.renderToolkit();
         this.renderBlogs();
         this.initThemeToggle();
         this.initNavigation();
-        this.initProjectFilter();
         this.initModals();
         this.initCopyPills();
         this.initLucideIcons();
@@ -183,23 +180,7 @@ class App {
     }
 
     /* ------------------------------------------------------------------------
-       2. Hero Stats Rendering
-       ------------------------------------------------------------------------ */
-    renderHeroStats() {
-        const statsRow = document.getElementById('hero-stats-row');
-        if (!statsRow) return;
-
-        statsRow.innerHTML = this.data.profile.stats.map(stat => `
-            <div class="hero-stat-card">
-                <div class="hero-stat-value">${stat.value}</div>
-                <div class="hero-stat-label">${stat.label}</div>
-                <div class="hero-stat-sub">${stat.change}</div>
-            </div>
-        `).join('');
-    }
-
-    /* ------------------------------------------------------------------------
-       3. Coursework Bento
+       2. Coursework Bento
        ------------------------------------------------------------------------ */
     renderCoursework() {
         const list = document.getElementById('coursework-list');
@@ -217,107 +198,78 @@ class App {
     }
 
     /* ------------------------------------------------------------------------
-       4. Skills Categories
+       3. Redesigned Apple Bento Toolkit (Languages & Frameworks)
        ------------------------------------------------------------------------ */
-    renderSkills() {
-        const container = document.getElementById('skills-container');
-        if (!container) return;
+    renderToolkit() {
+        const container = document.getElementById('toolkit-bento-grid');
+        if (!container || !this.data.toolkit) return;
 
-        container.innerHTML = this.data.skillCategories.map(cat => `
-            <div class="skill-category-card">
-                <div class="skill-cat-header">
-                    <span class="skill-cat-title">${cat.category}</span>
-                    <span class="badge badge-neutral">${cat.badge}</span>
-                </div>
-                <div class="skill-list">
-                    ${cat.skills.map(skill => `
-                        <div class="skill-item">
-                            <div class="skill-item-header">
-                                <span class="skill-item-name">
-                                    <i data-lucide="${skill.icon || 'check'}" style="width: 14px; height: 14px; color: var(--text-muted);"></i>
-                                    ${skill.name}
-                                </span>
-                                <span class="skill-item-pct">${skill.level}%</span>
+        const iconMap = {
+            cpp: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon><line x1="12" y1="22" x2="12" y2="15.5"></line><polyline points="22 8.5 12 15.5 2 8.5"></polyline><polyline points="2 15.5 12 8.5 22 15.5"></polyline></svg>`,
+            java: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FB923C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>`,
+            python: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H8a4 4 0 0 0-4 4v4a4 4 0 0 0 4 4h4v-2H8a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h4v2h2V4a2 2 0 0 0-2-2z"></path><path d="M12 22h4a4 4 0 0 0 4-4v-4a4 4 0 0 0-4-4h-4v2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-4v-2h-2v2a2 2 0 0 0 2 2z"></path><circle cx="9" cy="6" r="1" fill="#38BDF8"></circle><circle cx="15" cy="18" r="1" fill="#38BDF8"></circle></svg>`,
+            pytorch: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>`,
+            scikit: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M3 9h18"></path><path d="M3 15h18"></path><path d="M9 3v18"></path><path d="M15 3v18"></path></svg>`,
+            opencv: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4"></circle><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"></line><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"></line></svg>`,
+            transformers: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.29 7 12 12 20.71 7"></polyline><line x1="12" y1="22" x2="12" y2="12"></line></svg>`,
+            matrix: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h4v16H4"></path><path d="M20 4h-4v16h4"></path><circle cx="9" cy="9" r="1" fill="currentColor"></circle><circle cx="15" cy="9" r="1" fill="currentColor"></circle><circle cx="9" cy="15" r="1" fill="currentColor"></circle><circle cx="15" cy="15" r="1" fill="currentColor"></circle></svg>`,
+            calculus: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`,
+            stats: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="m19 9-5 5-4-4-3 3"></path></svg>`,
+            database: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>`,
+            git: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F87171" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="6" y1="9" x2="6" y2="15"></line><path d="M18 15a9 9 0 0 0-9-9"></path></svg>`,
+            linux: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E2E8F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>`,
+            terminal: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A3E635" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>`
+        };
+
+        const domains = [
+            { key: 'systems', colSpan: 'col-span-12' },
+            { key: 'ai', colSpan: 'col-span-6' },
+            { key: 'mathematics', colSpan: 'col-span-6' },
+            { key: 'toolchain', colSpan: 'col-span-12' }
+        ];
+
+        container.innerHTML = domains.map(({ key, colSpan }) => {
+            const domain = this.data.toolkit[key];
+            if (!domain) return '';
+
+            return `
+                <div class="toolkit-domain-card ${colSpan}">
+                    <div class="toolkit-domain-header">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.35rem;">
+                                <h3 class="toolkit-domain-title">${domain.category}</h3>
                             </div>
-                            <div class="skill-bar-track">
-                                <div class="skill-bar-fill" style="width: ${skill.level}%;"></div>
-                            </div>
+                            <p class="toolkit-domain-subtitle">${domain.subtitle}</p>
                         </div>
-                    `).join('')}
+                        <span class="badge badge-neutral">${domain.badge}</span>
+                    </div>
+
+                    <div class="toolkit-items-grid">
+                        ${domain.items.map(item => `
+                            <div class="toolkit-item">
+                                <div class="toolkit-item-top">
+                                    <div class="toolkit-item-icon">
+                                        ${iconMap[item.icon] || iconMap.terminal}
+                                    </div>
+                                    <div class="toolkit-item-head-text">
+                                        <div class="toolkit-item-name">${item.name}</div>
+                                        <div class="toolkit-item-level">${item.level}</div>
+                                    </div>
+                                </div>
+                                <p class="toolkit-item-desc">${item.desc}</p>
+                                <div class="toolkit-item-tags">
+                                    ${item.tags.map(t => `<span class="tag-pill">${t}</span>`).join('')}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
                 </div>
-            </div>
-        `).join('');
+            `;
+        }).join('');
     }
 
     /* ------------------------------------------------------------------------
-       5. Featured Projects & Filter
-       ------------------------------------------------------------------------ */
-    renderProjects() {
-        const grid = document.getElementById('projects-grid');
-        if (!grid) return;
-
-        const filtered = this.activeFilter === 'all'
-            ? this.data.projects
-            : this.data.projects.filter(p => p.category.toLowerCase().includes(this.activeFilter.toLowerCase()) || p.tags.some(t => t.toLowerCase().includes(this.activeFilter.toLowerCase())));
-
-        grid.innerHTML = filtered.map(p => `
-            <div class="project-card">
-                <div class="project-thumbnail">
-                    <img src="${p.image}" alt="${p.title}" loading="lazy">
-                    <div class="project-badge-overlay">
-                        <span class="badge badge-green">${p.accuracy}</span>
-                    </div>
-                </div>
-                <div class="project-content">
-                    <div class="project-category">${p.category}</div>
-                    <h3 class="project-title">${p.title}</h3>
-                    <p class="project-desc">${p.description}</p>
-                    <div class="project-tags">
-                        ${p.tags.map(tag => `<span class="tech-tag">${tag}</span>`).join('')}
-                    </div>
-                    <div class="project-footer-actions">
-                        <button class="btn btn-glass btn-sm view-arch-btn" data-project-id="${p.id}">
-                            <i data-lucide="layers" style="width: 13px; height: 13px;"></i> Architecture
-                        </button>
-                        <div style="display: flex; gap: 0.45rem;">
-                            <a href="${p.githubUrl}" target="_blank" class="btn btn-glass btn-sm" title="View Code">
-                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>Code
-                            </a>
-                            <a href="${p.liveDemoUrl}" class="btn btn-primary-white btn-sm">
-                                <i data-lucide="play" style="width: 13px; height: 13px;"></i> Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `).join('');
-
-        this.initLucideIcons();
-
-        document.querySelectorAll('.view-arch-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const id = btn.getAttribute('data-project-id');
-                this.openProjectModal(id);
-                if (window.UI_AUDIO) window.UI_AUDIO.playPop();
-            });
-        });
-    }
-
-    initProjectFilter() {
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                this.activeFilter = btn.getAttribute('data-filter');
-                this.renderProjects();
-                if (window.UI_AUDIO) window.UI_AUDIO.playClick();
-            });
-        });
-    }
-
-    /* ------------------------------------------------------------------------
-       6. Engineering Journal / Blogs Rendering
+       4. Engineering Journal / Blogs Rendering
        ------------------------------------------------------------------------ */
     renderBlogs() {
         const grid = document.getElementById('journal-grid');
@@ -348,31 +300,26 @@ class App {
         this.initLucideIcons();
     }
 
-
-
     /* ------------------------------------------------------------------------
-       8. Modals: Project Architecture & Resume
+       5. Modals: Resume
        ------------------------------------------------------------------------ */
     initModals() {
-        const projModal = document.getElementById('project-modal');
         const resumeModal = document.getElementById('resume-modal');
 
         document.querySelectorAll('.modal-close-btn').forEach(btn => {
             btn.addEventListener('click', () => {
-                if (projModal) projModal.classList.remove('active');
                 if (resumeModal) resumeModal.classList.remove('active');
                 if (window.UI_AUDIO) window.UI_AUDIO.playClick();
             });
         });
 
-        [projModal, resumeModal].forEach(modal => {
-            if (!modal) return;
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.classList.remove('active');
+        if (resumeModal) {
+            resumeModal.addEventListener('click', (e) => {
+                if (e.target === resumeModal) {
+                    resumeModal.classList.remove('active');
                 }
             });
-        });
+        }
 
         document.querySelectorAll('.open-resume-btn').forEach(btn => {
             btn.addEventListener('click', () => {
@@ -382,65 +329,8 @@ class App {
         });
     }
 
-    openProjectModal(projectId) {
-        const p = this.data.projects.find(item => item.id === projectId);
-        if (!p) return;
-
-        const titleEl = document.getElementById('modal-project-title');
-        const bodyEl = document.getElementById('modal-project-body');
-        const modal = document.getElementById('project-modal');
-
-        if (titleEl) titleEl.textContent = p.title;
-        if (bodyEl) {
-            bodyEl.innerHTML = `
-                <div style="margin-bottom: 1.2rem;">
-                    <span class="badge badge-green" style="margin-bottom: 0.8rem;">${p.accuracy}</span>
-                    <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;">${p.description}</p>
-                </div>
-
-                <div style="background: rgba(0,0,0,0.5); border: 1px solid var(--border-hairline); border-radius: var(--radius-md); padding: 1.2rem; margin-bottom: 1.4rem;">
-                    <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.5rem; letter-spacing: 0.05em;">NEURAL ARCHITECTURE SPECIFICATION</div>
-                    <div style="font-family: var(--font-mono); font-size: 0.8rem; color: #E4E4E7; background: #000000; padding: 0.8rem; border-radius: 6px; border: 1px solid var(--border-hairline); word-break: break-word;">
-                        ${p.architecture}
-                    </div>
-                </div>
-
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; margin-bottom: 1.6rem;">
-                    ${p.metrics.map(m => `
-                        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-hairline); border-radius: 8px; padding: 0.8rem;">
-                            <div style="font-size: 0.72rem; color: var(--text-muted);">${m.label}</div>
-                            <div style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: var(--text-white);">${m.value}</div>
-                        </div>
-                    `).join('')}
-                </div>
-
-                <div style="display: flex; justify-content: flex-end; gap: 0.6rem;">
-                    <a href="${p.githubUrl}" target="_blank" class="btn btn-glass btn-sm">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 5px;"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>View Repository
-                    </a>
-                    ${p.isPlaygroundLinked ? `
-                        <a href="#playground" class="btn btn-primary-white btn-sm modal-jump-playground">
-                            <i data-lucide="play" style="width: 13px; height: 13px;"></i> Open in AI Studio
-                        </a>
-                    ` : ''}
-                </div>
-            `;
-
-            this.initLucideIcons();
-
-            const jumpBtn = bodyEl.querySelector('.modal-jump-playground');
-            if (jumpBtn) {
-                jumpBtn.addEventListener('click', () => {
-                    modal.classList.remove('active');
-                });
-            }
-        }
-
-        if (modal) modal.classList.add('active');
-    }
-
     /* ------------------------------------------------------------------------
-       9. Copy to Clipboard Pills
+       6. Copy to Clipboard Pills
        ------------------------------------------------------------------------ */
     initCopyPills() {
         document.querySelectorAll('.copy-pill').forEach(pill => {
@@ -459,7 +349,7 @@ class App {
     }
 
     /* ------------------------------------------------------------------------
-       11. Apple Dynamic Island Style Toast System
+       7. Apple Dynamic Island Style Toast System
        ------------------------------------------------------------------------ */
     showToast(message) {
         let container = document.getElementById('toast-container');

@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Sathvik - First-Year AI & Machine Learning Undergraduate at Dayananda Sagar University, Bangalore. Exploring Python, C++, Core Java, and Neural Systems.">
+    <meta name="description" content="Portfolio of Sathvik - First-Year AI & Machine Learning Undergraduate at Dayananda Sagar University, Bangalore. Mastering Python, C++, Core Java, and Neural Systems.">
     <meta name="keywords" content="Sathvik, AI, Machine Learning, Dayananda Sagar University, DSU Bangalore, Python, C++, Core Java, PyTorch, Student Portfolio, Apple Minimalism">
     <meta name="author" content="Sathvik">
     <title>Sathvik | AI &amp; ML Undergrad • Dayananda Sagar University</title>
+
+    <!-- Custom Apple Cupertino Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="assets/images/favicon.svg">
 
     <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -45,7 +50,6 @@
             <li><a href="#about" class="nav-link">Foundations</a></li>
             <li><a href="#skills" class="nav-link">Toolkit</a></li>
             <li><a href="#playground" class="nav-link">AI Studio</a></li>
-            <li><a href="#projects" class="nav-link">Projects</a></li>
             <li><a href="#journal" class="nav-link">Journal</a></li>
             <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
@@ -71,7 +75,7 @@
 
     <!-- Main Content -->
     <main>
-        <!-- Hero Section -->
+        <!-- Hero Section (Prominent 40% Portrait Showcase + Philosophy Quotes) -->
         <section class="hero-section" id="hero">
             <div class="container">
                 <div class="hero-grid">
@@ -90,57 +94,90 @@
                         </h1>
 
                         <p class="hero-bio">
-                            I am <strong style="color: var(--text-white);">Sathvik</strong>, a first-year AI &amp; Machine Learning undergraduate at <strong style="color: var(--text-white);">Dayananda Sagar University (DSU), Bangalore</strong>. Focused on computer science foundations across <strong style="color: var(--text-white);">Python, C++, and Core Java</strong>, exploring linear algebra and deep neural networks with disciplined mathematical rigor.
+                            I am <strong style="color: var(--text-white);">Sathvik</strong>, an AI &amp; Machine Learning undergraduate at <strong style="color: var(--text-white);">Dayananda Sagar University (DSU), Bangalore</strong>. Rigorously mastering core computer science foundations across <strong style="color: var(--text-white);">Python, C++, and Core Java</strong>, building mathematical intuition from linear algebra to deep neural networks.
                         </p>
 
                         <div class="hero-cta-group">
-                            <a href="#projects" class="btn btn-primary-white">
-                                Explore Projects
+                            <a href="#playground" class="btn btn-primary-white">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                Launch AI Studio
                             </a>
-                            <a href="#journal" class="btn btn-glass">
-                                Read Journal
+                            <a href="#skills" class="btn btn-glass">
+                                Technical Toolkit
                             </a>
+                            <button class="btn btn-glass open-resume-btn">
+                                Resume
+                            </button>
                         </div>
 
-                        <!-- Minimalist Stats Counter -->
-                        <div class="hero-stats-row" id="hero-stats-row">
-                            <!-- Injected by app.js -->
+                        <!-- Apple Luxury Philosophy Quote Card -->
+                        <div class="hero-quote-card">
+                            <div class="hero-quote-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H4c-1.25 0-2 .75-2 2v6c0 1.25.75 2 2 2 0 4 1.5 6 3 8z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-4c-1.25 0-2 .75-2 2v6c0 1.25.75 2 2 2 0 4 1.5 6 3 8z"></path></svg>
+                            </div>
+                            <div class="hero-quote-content">
+                                <p class="hero-quote-text">
+                                    “Learn the mechanics before the abstractions. Master every pointer in C++, every object hierarchy in Core Java, and every partial derivative driving backpropagation.”
+                                </p>
+                                <div class="hero-quote-author">
+                                    <strong>Sathvik</strong> • <span>Academic Thesis, DSU Bangalore</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Credentials Bar -->
+                        <div class="hero-credentials-row">
+                            <div class="hero-credential-pill"><span class="cred-dot"></span> B.Tech AI &amp; ML (2025–2029)</div>
+                            <div class="hero-credential-pill"><span class="cred-dot"></span> Dayananda Sagar University</div>
+                            <div class="hero-credential-pill"><span class="cred-dot"></span> Bengaluru, India</div>
                         </div>
                     </div>
 
-                    <!-- Right Visual Card -->
-                    <div class="hero-visual-card">
-                        <div class="avatar-container">
-                            <img src="assets/images/avatar.jpg" alt="Sathvik" class="avatar-img">
-                        </div>
-                        <h2 class="hero-card-name">Sathvik</h2>
-                        <div class="hero-card-role">B.Tech in Artificial Intelligence &amp; Machine Learning</div>
-                        <div class="hero-card-institution">Dayananda Sagar University, Bangalore</div>
-                        <div class="hero-card-meta">
-                            <span>School of Engineering • Class of 2029</span>
-                        </div>
+                    <!-- Right Column: 40% Large Portrait Showcase Card -->
+                    <div class="hero-portrait-showcase">
+                        <div class="portrait-card">
+                            <div class="portrait-img-wrapper">
+                                <img src="assets/images/avatar.jpg" alt="Sathvik - Dayananda Sagar University" class="portrait-main-img">
+                                <div class="portrait-gradient-scrim"></div>
+                            </div>
 
-                        <div class="hero-focus-tags">
-                            <span class="badge badge-neutral">Python</span>
-                            <span class="badge badge-neutral">C++ (DSA)</span>
-                            <span class="badge badge-neutral">Core Java</span>
-                            <span class="badge badge-neutral">PyTorch</span>
-                            <span class="badge badge-green">Kaggle Top 18%</span>
-                        </div>
+                            <!-- Floating Badges on Portrait -->
+                            <div class="portrait-top-pill">
+                                <span class="badge badge-neutral">DSU School of Engineering</span>
+                                <span class="badge badge-green"><span class="pulse-dot"></span> Open to Collab</span>
+                            </div>
 
-                        <div class="social-links-bar">
-                            <a href="https://github.com/sathviik27" target="_blank" class="social-icon-btn" aria-label="GitHub" title="GitHub">
-                                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
-                            </a>
-                            <a href="https://linkedin.com" target="_blank" class="social-icon-btn" aria-label="LinkedIn" title="LinkedIn">
-                                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                            </a>
-                            <a href="https://kaggle.com" target="_blank" class="social-icon-btn" aria-label="Kaggle" title="Kaggle">
-                                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18.825 21.5h-3.876l-4.708-6.602-1.472 1.408V21.5H5.175V2.5h3.594v11.756l5.885-6.006h4.635l-6.425 6.438 6.425 6.812h-.464z"/></svg>
-                            </a>
-                            <a href="https://huggingface.co" target="_blank" class="social-icon-btn" aria-label="Hugging Face" title="Hugging Face">
-                                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-                            </a>
+                            <!-- Frosted Glass Caption Overlay -->
+                            <div class="portrait-glass-caption">
+                                <div class="portrait-name">Sathvik</div>
+                                <div class="portrait-role">B.Tech in Artificial Intelligence &amp; Machine Learning</div>
+                                <div class="portrait-institution">Dayananda Sagar University, Bangalore</div>
+
+                                <div class="portrait-focus-tags">
+                                    <span class="badge badge-neutral">Python</span>
+                                    <span class="badge badge-neutral">C++ (DSA)</span>
+                                    <span class="badge badge-neutral">Core Java</span>
+                                    <span class="badge badge-neutral">PyTorch</span>
+                                </div>
+
+                                <div class="portrait-social-row">
+                                    <a href="https://github.com/sathviik27" target="_blank" class="social-icon-btn" aria-label="GitHub" title="GitHub">
+                                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                                    </a>
+                                    <a href="https://linkedin.com" target="_blank" class="social-icon-btn" aria-label="LinkedIn" title="LinkedIn">
+                                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                                    </a>
+                                    <a href="https://kaggle.com" target="_blank" class="social-icon-btn" aria-label="Kaggle" title="Kaggle">
+                                        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18.825 21.5h-3.876l-4.708-6.602-1.472 1.408V21.5H5.175V2.5h3.594v11.756l5.885-6.006h4.635l-6.425 6.438 6.425 6.812h-.464z"/></svg>
+                                    </a>
+                                    <a href="https://huggingface.co" target="_blank" class="social-icon-btn" aria-label="Hugging Face" title="Hugging Face">
+                                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                                    </a>
+                                    <a href="https://x.com" target="_blank" class="social-icon-btn" aria-label="Twitter / X" title="X (Twitter)">
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -182,55 +219,32 @@
                         </div>
                     </div>
 
-                    <!-- Bento Tile 2: Consistency Activity -->
+                    <!-- Bento Tile 2: Academic & Analytical Rigor (Replaces fake git grid) -->
                     <div class="apple-card bento-col-5">
                         <div class="bento-badge-row">
-                            <span class="badge badge-green">Daily Practice</span>
-                            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">100 Days of Code</span>
+                            <span class="badge badge-green">First Principles</span>
+                            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim);">DSU LABS</span>
                         </div>
-                        <h3 style="font-size: 1.2rem; margin-bottom: 0.35rem;">Engineering Consistency</h3>
-                        <p style="color: var(--text-secondary); font-size: 0.82rem;">
-                            Daily problem-solving in DSA (C++), Java class design, and PyTorch model experimentation.
+                        <h3 style="font-size: 1.2rem; margin-bottom: 0.35rem; color: var(--text-white);">Analytical Rigor</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.84rem; line-height: 1.6; margin-bottom: 1rem;">
+                            Prioritizing algorithmic proofs, asymptotic complexity, low-level memory allocation, and linear algebra transforms.
                         </p>
-                        <div class="git-activity-card">
-                            <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">
-                                <span>Commit Activity</span>
-                                <span style="color: var(--accent-green);">480+ contributions</span>
+                        <div class="principles-pill-list">
+                            <div class="principle-item">
+                                <span class="principle-bullet"></span>
+                                <span>Pointers &amp; Memory Allocation in C++</span>
                             </div>
-                            <div class="git-grid-visual">
-                                <div class="git-cell lvl-2"></div>
-                                <div class="git-cell lvl-3"></div>
-                                <div class="git-cell lvl-1"></div>
-                                <div class="git-cell lvl-rind"></div>
-                                <div class="git-cell lvl-2"></div>
-                                <div class="git-cell lvl-1"></div>
-                                <div class="git-cell lvl-3"></div>
-                                <div class="git-cell lvl-rind"></div>
-                                <div class="git-cell lvl-1"></div>
-                                <div class="git-cell lvl-2"></div>
-                                <div class="git-cell lvl-3"></div>
-                                <div class="git-cell lvl-rind"></div>
-                                <div class="git-cell lvl-2"></div>
-                                <div class="git-cell lvl-1"></div>
-                                <div class="git-cell lvl-3"></div>
-                                <div class="git-cell lvl-rind"></div>
-
-                                <div class="git-cell lvl-1"></div>
-                                <div class="git-cell lvl-2"></div>
-                                <div class="git-cell lvl-rind"></div>
-                                <div class="git-cell lvl-3"></div>
-                                <div class="git-cell lvl-1"></div>
-                                <div class="git-cell lvl-rind"></div>
-                                <div class="git-cell lvl-2"></div>
-                                <div class="git-cell lvl-1"></div>
-                                <div class="git-cell lvl-3"></div>
-                                <div class="git-cell lvl-rind"></div>
-                                <div class="git-cell lvl-1"></div>
-                                <div class="git-cell lvl-2"></div>
-                                <div class="git-cell lvl-3"></div>
-                                <div class="git-cell lvl-rind"></div>
-                                <div class="git-cell lvl-2"></div>
-                                <div class="git-cell lvl-3"></div>
+                            <div class="principle-item">
+                                <span class="principle-bullet"></span>
+                                <span>Class Hierarchies &amp; JVM Internals in Java</span>
+                            </div>
+                            <div class="principle-item">
+                                <span class="principle-bullet"></span>
+                                <span>Multivariable Gradients in Backprop</span>
+                            </div>
+                            <div class="principle-item">
+                                <span class="principle-bullet"></span>
+                                <span>Vector Space Transformations &amp; SVD</span>
                             </div>
                         </div>
                     </div>
@@ -253,7 +267,7 @@
             </div>
         </section>
 
-        <!-- Technical Toolkit Section -->
+        <!-- Redesigned Languages & Frameworks Section (Cupertino Bento) -->
         <section class="section" id="skills">
             <div class="container">
                 <div class="section-header">
@@ -262,17 +276,17 @@
                     </span>
                     <h2 class="section-title">Languages &amp; Frameworks</h2>
                     <p class="section-desc">
-                        Proficiencies spanning Python, C++, Core Java, and specialized machine learning libraries.
+                        Engineering proficiencies across C++, Core Java, Python, and mathematical foundations for artificial intelligence.
                     </p>
                 </div>
 
-                <div class="skills-container" id="skills-container">
-                    <!-- Injected by app.js -->
+                <div class="toolkit-bento-grid" id="toolkit-bento-grid">
+                    <!-- Injected by app.js with Apple Cupertino cards -->
                 </div>
             </div>
         </section>
 
-        <!-- Interactive AI Studio Section -->
+        <!-- Interactive AI Studio Section (Flagship Showcase) -->
         <section class="section" id="playground">
             <div class="container">
                 <div class="section-header">
@@ -281,7 +295,7 @@
                     </span>
                     <h2 class="section-title">Interactive <span class="apple-silver-text">AI Studio</span></h2>
                     <p class="section-desc">
-                        Lightweight neural network inference and optimization models running directly inside your browser.
+                        Lightweight neural network inference and optimization models running directly inside your browser with zero latency.
                     </p>
                 </div>
 
@@ -382,7 +396,7 @@
                                 <div style="display: flex; flex-direction: column; gap: 0.9rem; margin-top: 1rem;">
                                     <div>
                                         <div style="display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 0.2rem;">
-                                            <span style="color: var(--text-secondary);">Polarity Score (-1.0 to +1.0)</span>
+                                             <span style="color: var(--text-secondary);">Polarity Score (-1.0 to +1.0)</span>
                                             <span id="polarity-meter-val" style="font-family: var(--font-mono); color: var(--accent-green);">+0.85</span>
                                         </div>
                                         <div class="skill-bar-track">
@@ -458,35 +472,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Featured Projects Section -->
-        <section class="section" id="projects">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag badge badge-neutral">
-                        Selected Works
-                    </span>
-                    <h2 class="section-title">Projects &amp; Systems</h2>
-                    <p class="section-desc">
-                        Engineering projects across Python, C++, Core Java, and neural architectures.
-                    </p>
-                </div>
-
-                <!-- Filter Bar -->
-                <div class="projects-filter-bar">
-                    <button class="filter-btn active" data-filter="all">All (4)</button>
-                    <button class="filter-btn" data-filter="Computer Vision">Computer Vision</button>
-                    <button class="filter-btn" data-filter="Core Java">Core Java &amp; Systems</button>
-                    <button class="filter-btn" data-filter="Natural Language Processing">NLP</button>
-                    <button class="filter-btn" data-filter="Generative AI">RAG &amp; Vector</button>
-                </div>
-
-                <!-- Projects Grid -->
-                <div class="projects-grid" id="projects-grid">
-                    <!-- Injected by app.js -->
                 </div>
             </div>
         </section>
@@ -605,17 +590,6 @@
         </div>
     </footer>
 
-    <!-- Project Architecture Modal -->
-    <div class="modal-overlay" id="project-modal">
-        <div class="modal-content">
-            <button class="modal-close-btn" aria-label="Close Modal">
-                <i data-lucide="x" style="width: 16px; height: 16px;"></i>
-            </button>
-            <h3 id="modal-project-title" style="font-size: 1.4rem; margin-bottom: 0.8rem; color: var(--text-white);"></h3>
-            <div id="modal-project-body"></div>
-        </div>
-    </div>
-
     <!-- Resume Modal -->
     <div class="modal-overlay" id="resume-modal">
         <div class="modal-content" style="max-width: 760px;">
@@ -637,22 +611,20 @@
                 <div>
                     <h4 style="color: var(--text-white); font-size: 0.95rem; margin-bottom: 0.3rem;">EDUCATION</h4>
                     <p><strong style="color: var(--text-white);">Dayananda Sagar University (DSU), Bangalore</strong></p>
-                    <p>B.Tech in Artificial Intelligence &amp; Machine Learning (2025 – 2029) • Current CGPA: 9.4/10.0</p>
-                    <p style="font-size: 0.82rem; color: var(--text-muted);">Relevant Coursework: Data Structures in C++, OOP in Core Java, Python for Data Science, Linear Algebra, Calculus</p>
+                    <p>B.Tech in Artificial Intelligence &amp; Machine Learning (2025 – 2029)</p>
+                    <p style="font-size: 0.82rem; color: var(--text-muted);">Relevant Coursework: Data Structures in C++, OOP in Core Java, Python for AI &amp; Scientific Computing, Linear Algebra, Multivariable Calculus</p>
                 </div>
 
                 <div>
                     <h4 style="color: var(--text-white); font-size: 0.95rem; margin-bottom: 0.3rem;">CORE TECHNICAL TOOLKIT</h4>
-                    <p><strong>Languages:</strong> Python 3.11+, C++, Core Java (JDK 21), SQL, Bash</p>
-                    <p><strong>Machine Learning &amp; AI:</strong> PyTorch, OpenCV, Scikit-Learn, NumPy, Pandas, Transformers</p>
-                    <p><strong>Systems &amp; Tools:</strong> Git, Linux, JVM Memory Tuning, FastAPI, ChromaDB</p>
+                    <p><strong>Languages:</strong> C++ (C++20 / STL), Core Java (JDK 21), Python 3.11+, SQL, Bash</p>
+                    <p><strong>Machine Learning &amp; AI:</strong> PyTorch, OpenCV, Scikit-Learn, NumPy, Hugging Face Transformers</p>
+                    <p><strong>Systems &amp; Math:</strong> Git, Linux / Ubuntu, Linear Algebra (SVD, Eigenvalues), Multivariate Calculus, Asymptotic Complexity</p>
                 </div>
 
                 <div>
-                    <h4 style="color: var(--text-white); font-size: 0.95rem; margin-bottom: 0.3rem;">FEATURED REPOSITORIES</h4>
-                    <p><strong style="color: var(--text-white);">VisionDigit (CNN MNIST):</strong> Lightweight PyTorch convolutional network with live canvas inference.</p>
-                    <p><strong style="color: var(--text-white);">JavaMatrix Engine:</strong> Pure Core Java multi-dimensional tensor computation and automatic differentiation without external dependencies.</p>
-                    <p><strong style="color: var(--text-white);">DSU CourseSpark:</strong> ChromaDB + LangChain course material question-answering assistant.</p>
+                    <h4 style="color: var(--text-white); font-size: 0.95rem; margin-bottom: 0.3rem;">FLAGSHIP SHOWCASE</h4>
+                    <p><strong style="color: var(--text-white);">Interactive AI Studio:</strong> In-browser neural inference suite featuring VisionDigit (PyTorch CNN digit recognition), SentimentPulse (DistilBERT NLP sentiment analyzer), and GradientLoss (SGD optimization dynamics visualizer).</p>
                 </div>
             </div>
         </div>

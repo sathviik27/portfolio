@@ -7,21 +7,16 @@
 const PORTFOLIO_DATA = {
     profile: {
         name: "Sathvik",
-        surname: "",
         role: "1st Year B.Tech in Artificial Intelligence & Machine Learning",
         institution: "Dayananda Sagar University (DSU), Bangalore",
         location: "Bengaluru, Karnataka, India",
         status: {
-            text: "Open for Research & Summer 2027 Internships",
+            text: "Open for Academic Research & Technical Collaborations",
             available: true
         },
-        bio: "First-year AI & ML undergraduate at Dayananda Sagar University, Bangalore. Passionate about computer science foundations, algorithm design, and neural architectures. Actively building projects across Python, C++, and Core Java while exploring linear algebra and deep learning from first principles.",
-        stats: [
-            { label: "Code Commits", value: "480+", icon: "git-commit", change: "+42 this month" },
-            { label: "ML & CS Repos", value: "12+", icon: "book-open", change: "GitHub & DSU Labs" },
-            { label: "Kaggle Ranking", value: "Top 18%", icon: "award", change: "Tabular Competitions" },
-            { label: "Core Stack", value: "Python / C++ / Java", icon: "zap", change: "DSA & Model Dev" }
-        ],
+        bio: "First-year AI & ML undergraduate at Dayananda Sagar University, Bangalore. Passionate about computer science foundations, algorithm design, and neural architectures. Actively mastering core programming across Python, C++, and Core Java while exploring linear algebra and deep learning from first principles.",
+        quote: "Learn the mechanics before the abstractions. Understand every pointer in C++, every object hierarchy in Java, and every partial derivative in backpropagation.",
+        quoteAuthor: "Sathvik • Dayananda Sagar University (DSU)",
         socials: {
             github: "https://github.com/sathviik27",
             linkedin: "https://linkedin.com",
@@ -35,151 +30,158 @@ const PORTFOLIO_DATA = {
     coursework: [
         {
             title: "Data Structures & Algorithms (C++)",
-            grade: "A+",
-            description: "Pointers, dynamic memory allocation, trees, graphs, heaps, dynamic programming, and asymptotic time complexity.",
+            grade: "Core Focus",
+            description: "Pointers, dynamic memory allocation (RAII), asymptotic time complexity O(N log N), binary search trees, heaps, graphs, and dynamic programming.",
             icon: "code"
         },
         {
             title: "Object-Oriented Programming (Core Java)",
-            grade: "A+",
-            description: "Encapsulation, inheritance, polymorphism, abstract classes, interfaces, JVM memory management, and Java Collections Framework.",
+            grade: "Core Focus",
+            description: "Encapsulation, inheritance, polymorphism, abstract interfaces, JVM heap/stack architecture, garbage collection, and Java Collections Framework.",
             icon: "cpu"
         },
         {
             title: "Linear Algebra & Vector Calculus",
-            grade: "A+",
-            description: "Matrix decompositions (SVD, Eigenvalues), vector spaces, orthogonal projections, and multivariable gradient fields for ML.",
+            grade: "Math Rigor",
+            description: "Matrix decompositions (SVD, Eigenvalues), vector spaces, linear transformations, dot products, and multivariate gradient fields for machine learning.",
             icon: "box"
         },
         {
-            title: "Python for AI & Data Science",
-            grade: "A",
-            description: "Vectorized computing with NumPy, data analysis with Pandas, automated pipeline scripting, and neural network prototyping in PyTorch.",
+            title: "Python for AI & Scientific Compute",
+            grade: "AI Stack",
+            description: "Vectorized array computations with NumPy, structured data processing with Pandas, and neural network prototyping in PyTorch.",
             icon: "terminal"
         }
     ],
 
-    skillCategories: [
-        {
-            category: "Core Languages",
+    toolkit: {
+        systems: {
+            category: "Core Systems & Algorithmic Languages",
+            subtitle: "Low-level mechanics, memory architectures, and disciplined object-oriented engineering",
             badge: "Primary Stack",
-            skills: [
-                { name: "Python 3.11+ (AI / Prototyping)", level: 95, icon: "terminal" },
-                { name: "C++ (DSA & Performance)", level: 88, icon: "hash" },
-                { name: "Core Java (OOP & Systems)", level: 85, icon: "coffee" },
-                { name: "SQL (Relational Queries)", level: 80, icon: "database" },
-                { name: "Bash / Linux Shell", level: 80, icon: "monitor" }
+            items: [
+                {
+                    name: "C++ (C++20 / STL)",
+                    level: "High Performance & DSA",
+                    desc: "Pointer arithmetic, manual memory allocation, RAII patterns, Standard Template Library (STL), graph algorithms, and asymptotic complexity analysis.",
+                    icon: "cpp",
+                    tags: ["Pointers & Memory", "STL Containers", "Graph Algorithms", "O(N log N) Optimization"]
+                },
+                {
+                    name: "Core Java (JDK 21)",
+                    level: "OOP & Systems Architecture",
+                    desc: "Class hierarchies, abstract design patterns, polymorphism, Java Collections Framework (HashMaps, Trees, Lists), Generics, and JVM memory lifecycle.",
+                    icon: "java",
+                    tags: ["OOP Architecture", "Collections API", "JVM Lifecycle", "Generics & Streams"]
+                },
+                {
+                    name: "Python 3.11+",
+                    level: "AI Modeling & Scientific Compute",
+                    desc: "Vectorized tensor computations, mathematical modeling, automated data pipelines, and deep neural network prototyping with PyTorch.",
+                    icon: "python",
+                    tags: ["NumPy Vectorization", "PyTorch Prototyping", "Scientific Compute", "Scripting Automation"]
+                },
+                {
+                    name: "SQL & Relational Schemas",
+                    level: "Data Storage & Querying",
+                    desc: "Relational database schema modeling, ACID transactions, complex multi-table joins, subqueries, and B-tree index query optimization.",
+                    icon: "database",
+                    tags: ["Relational Modeling", "Joins & Aggregations", "Indexing", "ACID Compliance"]
+                }
             ]
         },
-        {
-            category: "AI & Machine Learning",
+        ai: {
+            category: "Machine Learning & Deep Learning",
+            subtitle: "Neural architectures, mathematical optimization, and computer vision pipelines",
             badge: "Specialization",
-            skills: [
-                { name: "PyTorch & Neural Architectures", level: 85, icon: "flame" },
-                { name: "OpenCV (Computer Vision)", level: 80, icon: "eye" },
-                { name: "Scikit-Learn & Classical ML", level: 90, icon: "pie-chart" },
-                { name: "NumPy & Scientific Computing", level: 92, icon: "grid" },
-                { name: "Hugging Face Transformers", level: 72, icon: "smile" }
+            items: [
+                {
+                    name: "PyTorch Deep Learning",
+                    level: "Neural Architectures",
+                    desc: "Building and training neural models using dynamic computational graphs (Autograd), convolutional layers (CNNs), Dropout, and AdamW/SGD optimizers.",
+                    icon: "pytorch",
+                    tags: ["Autograd Graphs", "CNN Convolutions", "Loss Functions", "Model Training"]
+                },
+                {
+                    name: "NumPy & Scikit-Learn",
+                    level: "Classical ML & Vectors",
+                    desc: "Vectorized linear algebra, broadcast operations, feature scaling, regression, SVM classifiers, random forests, and PCA dimensionality reduction.",
+                    icon: "scikit",
+                    tags: ["Matrix Vectorization", "Classification & Regression", "PCA Decompositions", "Feature Engineering"]
+                },
+                {
+                    name: "OpenCV (Computer Vision)",
+                    level: "Image Processing",
+                    desc: "Spatial kernel filtering, morphological transformations, Sobel/Canny edge detection, contour analysis, and bounding-box normalization.",
+                    icon: "opencv",
+                    tags: ["Kernel Convolutions", "Edge Detection", "Morphology", "Pixel Transformations"]
+                },
+                {
+                    name: "Transformers & NLP",
+                    level: "Attention & Embeddings",
+                    desc: "Understanding self-attention mechanisms, subword tokenization (BPE/WordPiece), Hugging Face pipelines, and dense semantic vector representations.",
+                    icon: "transformers",
+                    tags: ["Self-Attention", "Tokenizers", "Dense Embeddings", "Hugging Face"]
+                }
             ]
         },
-        {
-            category: "Foundations & Math",
+        mathematics: {
+            category: "Mathematical Foundations for AI",
+            subtitle: "First-principles mathematical intuition underpinning modern learning algorithms",
             badge: "Academic Rigor",
-            skills: [
-                { name: "Matrix Algebra & Eigen-Systems", level: 90, icon: "box" },
-                { name: "Multivariate Calculus & Optimizers", level: 88, icon: "trending-up" },
-                { name: "Asymptotic Complexity & DSA", level: 85, icon: "code" },
-                { name: "Probability & Inferential Statistics", level: 82, icon: "check-circle" }
+            items: [
+                {
+                    name: "Linear Algebra & Matrix Decompositions",
+                    level: "Foundational Math",
+                    desc: "Vector spaces, basis transformations, dot products, projection manifolds, eigenvalues/eigenvectors, and Singular Value Decomposition (SVD).",
+                    icon: "matrix",
+                    tags: ["SVD Decomposition", "Eigenvalues", "Vector Spaces", "Orthogonal Projections"]
+                },
+                {
+                    name: "Multivariate Calculus & Optimization",
+                    level: "Optimization Math",
+                    desc: "Partial derivatives, Jacobian matrices, gradient vectors, Hessian curvature, and the multivariate chain rule driving reverse-mode autodiff.",
+                    icon: "calculus",
+                    tags: ["Gradient Fields", "Multivariate Chain Rule", "Jacobian Matrices", "Loss Contours"]
+                },
+                {
+                    name: "Probability & Inferential Statistics",
+                    level: "Statistical Theory",
+                    desc: "Probability distributions (Gaussian, Bernoulli), Bayes' theorem, maximum likelihood estimation (MLE), variance, and statistical hypothesis testing.",
+                    icon: "stats",
+                    tags: ["Bayes' Theorem", "Gaussian Distributions", "MLE Estimation", "Statistical Inference"]
+                }
+            ]
+        },
+        toolchain: {
+            category: "Engineering Toolchain & Research Stack",
+            subtitle: "Disciplined software practices, version control, and Linux environments",
+            badge: "Developer Workflow",
+            items: [
+                {
+                    name: "Git & GitHub Version Control",
+                    level: "Collaboration & Workflow",
+                    desc: "Distributed revision tracking, feature branching, merge conflict resolution, semantic commit messages, and collaborative open-source workflows.",
+                    icon: "git",
+                    tags: ["Branching Workflows", "Semantic Commits", "Diff Analysis", "Remote Sync"]
+                },
+                {
+                    name: "Linux / Ubuntu Environment",
+                    level: "Systems & CLI",
+                    desc: "POSIX command line navigation, Bash shell scripting, environment variables, process management, and Unix filesystem permissions.",
+                    icon: "linux",
+                    tags: ["POSIX Shell", "Bash Scripting", "Process Management", "Package Systems"]
+                },
+                {
+                    name: "Scientific Notebooks & IDEs",
+                    level: "Research & Development",
+                    desc: "Interactive algorithm prototyping in VS Code and Jupyter Lab, virtual environment isolation (venv/conda), and debugging tools.",
+                    icon: "terminal",
+                    tags: ["VS Code", "Jupyter Lab", "Virtual Environments", "GDB Debugging"]
+                }
             ]
         }
-    ],
-
-    projects: [
-        {
-            id: "vision-digit",
-            title: "VisionDigit: Neural Handwritten Digit Recognizer",
-            subtitle: "4-layer CNN trained on MNIST with live in-browser zero-latency inference",
-            category: "Computer Vision",
-            accuracy: "99.2% Test Accuracy",
-            featured: true,
-            image: "assets/images/project-vision.svg",
-            tags: ["PyTorch", "Python", "CNN", "FastAPI", "Canvas API"],
-            description: "Engineered a lightweight Convolutional Neural Network with Batch Normalization and Dropout for robust digit recognition. Built an in-browser zero-latency canvas interface for live testing.",
-            metrics: [
-                { label: "Model Size", value: "1.4 MB" },
-                { label: "Inference Latency", value: "8.4 ms" },
-                { label: "Training Epochs", value: "25" },
-                { label: "Parameters", value: "142K" }
-            ],
-            architecture: "Input (28x28x1) -> Conv2D(32, 3x3) -> BatchNorm -> ReLU -> MaxPool(2x2) -> Conv2D(64, 3x3) -> BatchNorm -> ReLU -> MaxPool(2x2) -> Dense(128) -> Dropout(0.3) -> Softmax(10)",
-            githubUrl: "https://github.com/sathviik27/vision-digit",
-            liveDemoUrl: "#playground",
-            isPlaygroundLinked: true
-        },
-        {
-            id: "java-core-nn",
-            title: "JavaMatrix: Core Java Tensor & Backprop Engine",
-            subtitle: "Pure Java implementation of multi-dimensional matrix operations and automatic differentiation",
-            category: "Core Java / AI",
-            accuracy: "Zero External Dependencies",
-            featured: true,
-            image: "assets/images/project-ml.svg",
-            tags: ["Core Java", "OOP", "Linear Algebra", "JVM Optimization"],
-            description: "Built an object-oriented tensor computation and gradient backpropagation engine entirely from scratch in Core Java (JDK 21) without external libraries, leveraging Java Generics and multithreading.",
-            metrics: [
-                { label: "Language", value: "Java 21" },
-                { label: "Dependencies", value: "0 (Pure JDK)" },
-                { label: "Matrix Operations", value: "18+ Ops" },
-                { label: "Test Coverage", value: "96% JUnit" }
-            ],
-            architecture: "Tensor2D Class -> Custom Matrix Multiplication (Strassen Algorithm) -> Computational Graph Node -> Backpropagation Pass -> SGD Optimizer",
-            githubUrl: "https://github.com/sathviik27/javamatrix-engine",
-            liveDemoUrl: "https://github.com/sathviik27/javamatrix-engine",
-            isPlaygroundLinked: false
-        },
-        {
-            id: "sentiment-pulse",
-            title: "SentimentPulse: Real-Time Stream NLP Engine",
-            subtitle: "DistilBERT fine-tuned sentiment classifier with token-level polarity heatmaps",
-            category: "Natural Language Processing",
-            accuracy: "94.8% F1-Score",
-            featured: false,
-            image: "assets/images/project-nlp.svg",
-            tags: ["Python", "Hugging Face", "Transformers", "FastAPI"],
-            description: "Fine-tuned DistilBERT on 50,000 product reviews to detect nuanced emotion and sentiment polarity with multi-class output (Positive, Neutral, Negative) and attention heatmaps.",
-            metrics: [
-                { label: "F1 Score", value: "0.948" },
-                { label: "Vocabulary", value: "30,522 Tokens" },
-                { label: "Quantization", value: "INT8 (4x speedup)" },
-                { label: "Latency", value: "14 ms" }
-            ],
-            architecture: "Text Tokenizer -> DistilBERT Transformer Encoder (6 layers) -> Attention Pooling -> Linear Head -> Softmax Tri-Classification",
-            githubUrl: "https://github.com/sathviik27/sentiment-pulse",
-            liveDemoUrl: "#playground",
-            isPlaygroundLinked: true
-        },
-        {
-            id: "dsu-campus-rag",
-            title: "DSU CourseSpark: AI Academic Tutor & RAG System",
-            subtitle: "Vector search assistant indexing 1st-year engineering curriculum into ChromaDB",
-            category: "Generative AI",
-            accuracy: "96% Retrieval Precision",
-            featured: false,
-            image: "assets/images/project-rag.svg",
-            tags: ["Python", "LangChain", "ChromaDB", "Vector Search"],
-            description: "Developed a Retrieval-Augmented Generation (RAG) assistant indexing Dayananda Sagar University 1st-year STEM lecture notes and textbook chapters into ChromaDB for syllabus-grounded AI tutoring.",
-            metrics: [
-                { label: "Indexed Chunks", value: "2,400+" },
-                { label: "Context Window", value: "8k Tokens" },
-                { label: "Hallucination Rate", value: "< 2.0%" },
-                { label: "Target Subjects", value: "Math, C++, Java" }
-            ],
-            architecture: "Curriculum Ingestion -> Recursive Text Splitter -> Vector Embeddings -> ChromaDB Cosine Index -> Similarity Re-ranking -> LLM Answer Synthesis",
-            githubUrl: "https://github.com/sathviik27/dsu-coursespark",
-            liveDemoUrl: "https://github.com/sathviik27/dsu-coursespark",
-            isPlaygroundLinked: false
-        }
-    ],
+    },
 
     blogs: [
         {
@@ -221,7 +223,6 @@ class Value:
         out = Value(self.data + other.data, (self, other), '+')
 
         def _backward():
-            # d(A+B)/dA = 1, d(A+B)/dB = 1
             self.grad += 1.0 * out.grad
             other.grad += 1.0 * out.grad
         out._backward = _backward
@@ -232,7 +233,6 @@ class Value:
         out = Value(self.data * other.data, (self, other), '*')
 
         def _backward():
-            # d(A*B)/dA = B, d(A*B)/dB = A
             self.grad += other.data * out.grad
             other.grad += self.data * out.grad
         out._backward = _backward
@@ -241,9 +241,9 @@ class Value:
 
 ---
 
-### Reverse-Mode Topological Sort
+### Reverse-Mode Autodiff: Topological Sort
 
-To compute gradients in reverse order, we perform a **topological sort** on the graph starting from the scalar output node.
+To propagate gradients backwards, we must traverse the nodes in **reverse topological order**, ensuring that when we compute the gradient for any node, all nodes that depend on it have already accumulated their gradients.
 
 \`\`\`python
 def backward(self):
@@ -258,194 +258,134 @@ def backward(self):
             topo.append(v)
 
     build_topo(self)
-    self.grad = 1.0  # Base case: dL/dL = 1.0
-
+    self.grad = 1.0
     for node in reversed(topo):
         node._backward()
 \`\`\`
 
 ---
 
-### Key Takeaways
-1. Gradients accumulate through the chain rule ($\`\\frac{\\partial \\mathcal{L}}{\\partial x} = \\sum \\frac{\\partial \\mathcal{L}}{\\partial y_i} \\cdot \\frac{\\partial y_i}{\\partial x}\`$).
-2. Vectorized implementations (like PyTorch tensors) apply this exact same graph traversal over multi-dimensional Jacobians.
-3. Writing autograd from scratch provides an invaluable mental model for debugging gradient vanishing and explosion in deep networks.
+### Conclusion & Key Takeaways
+
+1. Modern deep learning frameworks are high-performance graph compilers.
+2. Understanding the chain rule from first principles eliminates the "magic" of deep learning.
+3. Every parameter update via gradient descent follows this exact mechanical chain.
             `
         },
         {
-            id: "cpp-vs-core-java",
-            title: "C++ vs. Core Java for 1st-Year CS Students: Memory, OOP, and Performance",
-            subtitle: "Comparing pointer mechanics and RAII in C++ with JVM garbage collection and class hierarchies in Java.",
+            id: "cpp-vs-java-memory",
+            title: "Memory Architectures: C++ Manual Allocation vs Java JVM Garbage Collection",
+            subtitle: "A comparative deep-dive into pointers, cache locality, RAII, stack vs heap allocation, and the JVM ZGC collector.",
             date: "Jan 2026",
-            readTime: "6 min read",
-            category: "Computer Science",
+            readTime: "9 min read",
+            category: "Systems & Architecture",
             thumbnail: "assets/images/blog-systems.jpg",
-            tags: ["C++", "Core Java", "Memory Management", "DSA"],
+            tags: ["C++", "Core Java", "JVM", "Memory Management"],
             content: `
-### Why Master Both C++ and Java?
+### The Dual Paradigm
 
-In our first-year computer science curriculum, mastering both **C++** and **Core Java** forms the bedrock of systems programming and scalable software engineering.
-
-While both languages share C-style syntax, their underlying execution models, memory management paradigms, and object-oriented abstractions differ fundamentally.
+In our first-year computer science coursework at Dayananda Sagar University, we study both **C++** and **Core Java**. Comparing how both languages manage physical hardware memory provides profound insights into systems programming and AI runtime engines.
 
 ---
 
-### 1. Memory Management: Manual Pointers vs. JVM Garbage Collection
+### 1. C++: Explicit Ownership & RAII
 
-In C++, developers have deterministic control over the stack and heap:
+In C++, memory is explicit. Developers control allocation on both the stack (automatic lifetime) and the free store/heap (\`new\` / \`malloc\`).
 
 \`\`\`cpp
-// C++: Deterministic Resource Acquisition Is Initialization (RAII)
 #include <iostream>
 #include <memory>
 
 class TensorBuffer {
-    int* data;
     size_t size;
+    float* data;
 public:
-    TensorBuffer(size_t n) : size(n), data(new int[n]) {
-        std::cout << "Buffer allocated on Heap\\n";
+    TensorBuffer(size_t s) : size(s), data(new float[s]) {
+        std::cout << "Allocated " << size * sizeof(float) << " bytes on heap\\n";
     }
     ~TensorBuffer() {
-        delete[] data; // Deterministic deallocation
-        std::cout << "Buffer freed automatically on scope exit\\n";
+        delete[] data;
+        std::cout << "Freed memory deterministically via RAII\\n";
     }
 };
 \`\`\`
 
-In Java, all non-primitive objects reside on the heap and are managed by the JVM's Garbage Collector (G1 / ZGC):
+**Key advantage:** Deterministic destruction without garbage collection pauses. This is why high-performance deep learning runtimes (TensorRT, ONNX Runtime, libtorch) are written in C++.
+
+---
+
+### 2. Core Java: JVM Managed Heap & Generational GC
+
+Java abstracts memory behind reference semantics. All objects are allocated on the JVM managed heap, while primitive values and references live on thread stacks.
 
 \`\`\`java
-// Java: Automatic Garbage Collection & Safe References
-public class TensorBuffer {
-    private final int[] data;
+public class MatrixNode {
+    private final double[][] matrix;
+    private final int rows, cols;
 
-    public TensorBuffer(int size) {
-        this.data = new int[size]; // Allocated on JVM Heap
+    public MatrixNode(int rows, int cols) {
+        this.rows = rows;
+        this.cols = cols;
+        this.matrix = new double[rows][cols]; // Allocated on Eden space
     }
-    // No explicit destructor; GC automatically reclaims unreachable references
 }
 \`\`\`
 
----
+### Comparison Summary
 
-### 2. Performance in AI & Systems
-
-- **C++**: Generates direct machine code with zero runtime overhead. Preferred for deep learning runtimes (TensorRT, ONNX Runtime, CUDA kernels).
-- **Core Java**: Compiles to bytecode and utilizes Just-In-Time (JIT) compilation. Ideal for enterprise microservices, robust backend pipelines, and distributed data systems (Apache Spark, Kafka).
-
----
-
-### Conclusion
-Understanding C++ teaches you how the computer hardware actually operates with memory addresses and cache lines. Understanding Core Java teaches you disciplined object-oriented architecture, modularity, and large-scale application design.
+| Metric | C++ (Native) | Core Java (JVM) |
+| :--- | :--- | :--- |
+| **Allocation** | Stack or Heap (\`malloc\` / \`new\`) | Heap only (JVM Eden space) |
+| **Deallocation** | Deterministic (RAII / \`delete\`) | Non-deterministic (Garbage Collector) |
+| **Cache Locality** | Contiguous memory arrays | Pointer chasing across heap |
+| **Safety** | Undefined behavior on leaks | Memory safe (no segmentation faults) |
             `
         },
         {
-            id: "linear-transformations-ml",
-            title: "Linear Transformations as Neural Layers: A Geometric Perspective",
-            subtitle: "How matrix multiplication geometrically stretches, rotates, and projects feature spaces in machine learning.",
+            id: "linear-algebra-for-ml",
+            title: "The Geometry of Tensors: Why Linear Algebra is the True Language of AI",
+            subtitle: "Visualizing matrix transformations, eigenvectors, eigenvalues, and SVD as geometric operations on high-dimensional manifolds.",
             date: "Dec 2025",
-            readTime: "5 min read",
+            readTime: "6 min read",
             category: "Mathematics for ML",
             thumbnail: "assets/images/blog-geometry.jpg",
-            tags: ["Linear Algebra", "Geometry", "PyTorch", "Calculus"],
+            tags: ["Linear Algebra", "Mathematics", "Machine Learning", "SVD"],
             content: `
-### The Geometry of Matrix Multiplication
+### Vectors are Points in Space
 
-When we write \`y = W @ x + b\` in PyTorch, it is tempting to view it simply as algebraic dot products. But geometrically, every dense linear layer performs a **spatial transformation** of vector coordinates.
-
----
-
-### Coordinate Deformations
-
-Consider a 2D vector $\\mathbf{x} \\in \\mathbb{R}^2$. Multiplying by a $2 \\times 2$ matrix $W$:
-1. **Rotates** the coordinate grid lines.
-2. **Scales** vectors along the principal eigenvector axes by eigenvalue magnitudes $\\lambda_i$.
-3. **Shears** the space relative to the basis axes.
-
-\`\`\`
-   [x1]               [w11  w12] [x1]               [y1]
-   [  ]  =======>     [        ] [  ]  =======>     [  ]
-   [x2]               [w21  w22] [x2]               [y2]
- (Input Space)        (Transformation Matrix)    (Deformed Feature Space)
-\`\`\`
+Every input to a machine learning model—whether a pixel grid, an audio waveform, or a word embedding—is represented as a coordinate in high-dimensional vector space $\\mathbb{R}^n$.
 
 ---
 
-### Why Non-Linear Activations (ReLU) are Mandatory
+### Matrices as Linear Transformations
 
-If we stack two linear layers without a non-linear activation function:
-$$\\mathbf{y} = W_2 (W_1 \\mathbf{x}) = (W_2 W_1) \\mathbf{x} = W_{\\text{combined}} \\mathbf{x}$$
+A matrix $A \\in \\mathbb{R}^{m \\times n}$ does not merely store numbers; it represents a **geometric transformation** of space:
+1. It stretches or compresses space along specific directions.
+2. It rotates space around an axis.
+3. It projects space into lower or higher dimensions.
 
-The composition of two linear transformations is strictly another linear transformation. It cannot fold or bend the space to separate non-linearly separable classes (such as XOR).
+$$\\mathbf{y} = A\\mathbf{x}$$
 
-The activation function (like $\\text{ReLU}(z) = \\max(0, z)$) introduces a "hinge" into the space, allowing the neural network to fold Euclidean space and partition complex decision boundaries.
+When we pass an activation vector through a dense layer in a neural network:
+
+$$\\mathbf{h} = \\sigma(W\\mathbf{x} + \\mathbf{b})$$
+
+We are applying a linear shear and rotation ($W\\mathbf{x}$), translating the origin ($+\\mathbf{b}$), and bending the space non-linearly ($\\sigma$).
 
 ---
 
-### Summary
-Linear layers **warp, rotate, and project** feature spaces; non-linearities **fold and carve** the space to solve complex classification manifolds.
+### Singular Value Decomposition (SVD)
+
+Any real matrix $A$ can be factored into three geometric operations:
+
+$$A = U \\Sigma V^T$$
+
+- **$V^T$**: Rotation in the domain space
+- **$\\Sigma$**: Scaling along coordinate axes by singular values $\\sigma_i$
+- **$U$**: Rotation into the range space
+
+This single decomposition provides the theoretical foundation for Principal Component Analysis (PCA), low-rank matrix approximation, and LLM model compression (LoRA).
             `
-        }
-    ],
-
-    roadmap: [
-        {
-            year: "Year 1 (Dayananda Sagar University)",
-            badge: "Current 🟢",
-            status: "current",
-            title: "Foundational CS, Mathematics & Deep Learning Basics",
-            milestones: [
-                "Mastered Data Structures & Algorithms in C++ and Object-Oriented Design in Core Java",
-                "Built custom Neural Network and autograd graph from scratch in pure Python",
-                "Implemented pure Core Java Matrix & Tensor calculation library (JavaMatrix)",
-                "Competed in Kaggle Tabular Competitions (Top 18%)",
-                "Maintaining high academic standing in 1st-Year Engineering at DSU"
-            ]
-        },
-        {
-            year: "Year 2",
-            badge: "Upcoming 🎯",
-            status: "future",
-            title: "Computer Vision, Transformers & Open-Source Engineering",
-            milestones: [
-                "Deep dive into Vision Transformers (ViT) & Diffusion Models in PyTorch",
-                "Contribute to open-source ML/Java repositories and publish technical writeups",
-                "Build scalable backend services integrating C++ inference with Java/Python APIs",
-                "Secure Summer 2027 Research / Machine Learning Internship"
-            ]
-        },
-        {
-            year: "Year 3 & 4",
-            badge: "Vision 🚀",
-            status: "future",
-            title: "Distributed AI Systems, LLMs & Autonomous Agents",
-            milestones: [
-                "Master model quantization (INT4/INT8), TensorRT, and distributed GPU training",
-                "Deploy production-grade multi-modal AI systems and vector databases",
-                "Publish undergraduate research preprint and complete state-of-the-art capstone project"
-            ]
-        }
-    ],
-
-    certifications: [
-        {
-            name: "Deep Learning Specialization",
-            issuer: "DeepLearning.AI",
-            date: "Nov 2025",
-            skills: "Neural Networks, Backprop, CNNs, Hyperparameter Optimization"
-        },
-        {
-            name: "Mathematics for Machine Learning",
-            issuer: "Imperial College London",
-            date: "Jan 2026",
-            skills: "Linear Algebra, Vector Calculus, PCA, Eigenvalues"
-        },
-        {
-            name: "Data Structures & Algorithms in C++",
-            issuer: "Dayananda Sagar University / NPTEL",
-            date: "Dec 2025",
-            skills: "Trees, Graphs, Pointers, Memory Management, Sorting"
         }
     ]
 };
