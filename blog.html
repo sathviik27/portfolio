@@ -99,6 +99,24 @@
             color: var(--text-muted);
         }
 
+        .article-hero-cover-wrap {
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            margin: 2rem 0 2.4rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+            background: #000;
+        }
+
+        .article-hero-cover-img {
+            width: 100%;
+            height: auto;
+            max-height: 420px;
+            object-fit: cover;
+            display: block;
+        }
+
         .article-content-body {
             font-size: 1.05rem;
             color: #D4D4D8;
@@ -288,6 +306,10 @@
                                 <div class="byline-meta">1st Year AI &amp; ML • Dayananda Sagar University, Bangalore</div>
                             </div>
                         </div>
+
+                        <div class="article-hero-cover-wrap" id="article-cover-box" style="display: none;">
+                            <img src="" alt="Article Banner" class="article-hero-cover-img" id="article-hero-cover">
+                        </div>
                     </header>
 
                     <div class="article-content-body" id="article-content-container"></div>
@@ -332,7 +354,12 @@
                 if (!grid) return;
                 grid.innerHTML = PORTFOLIO_DATA.blogs.map(b => `
                     <a href="blog.html?article=${b.id}" class="journal-card article-card-link" data-id="${b.id}">
-                        <div>
+                        ${b.thumbnail ? `
+                        <div class="journal-thumb-wrap">
+                            <img src="${b.thumbnail}" alt="${b.title}" class="journal-thumb-img" loading="lazy">
+                        </div>
+                        ` : ''}
+                        <div class="journal-card-body">
                             <div class="journal-meta">
                                 <span class="badge badge-neutral" style="font-size: 0.7rem;">${b.category}</span>
                                 <span class="journal-date">${b.date} • ${b.readTime}</span>
@@ -394,6 +421,17 @@
                 document.getElementById('article-read-meta').textContent = `${article.date} • ${article.readTime}`;
                 document.getElementById('article-title-heading').textContent = article.title;
                 document.getElementById('article-subtitle-heading').textContent = article.subtitle;
+
+                const coverBox = document.getElementById('article-cover-box');
+                const coverImg = document.getElementById('article-hero-cover');
+                if (article.thumbnail && coverBox && coverImg) {
+                    coverImg.src = article.thumbnail;
+                    coverImg.alt = article.title;
+                    coverBox.style.display = 'block';
+                } else if (coverBox) {
+                    coverBox.style.display = 'none';
+                }
+
                 document.getElementById('article-content-container').innerHTML = parseMarkdown(article.content);
 
                 // Render pagination (prev/next)

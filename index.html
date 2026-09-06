@@ -35,7 +35,6 @@
             <li><a href="#playground" class="nav-link">AI Studio</a></li>
             <li><a href="#projects" class="nav-link">Projects</a></li>
             <li><a href="#journal" class="nav-link">Journal</a></li>
-            <li><a href="#roadmap" class="nav-link">Trajectory</a></li>
             <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
 
@@ -300,13 +299,17 @@
 
                                 <div style="margin-top: 0.8rem; width: 100%;">
                                     <div style="font-size: 0.72rem; color: var(--text-dim); margin-bottom: 0.3rem;">Presets:</div>
-                                    <div style="display: flex; gap: 0.3rem; justify-content: space-between;">
+                                    <div style="display: flex; gap: 0.25rem; flex-wrap: wrap; justify-content: space-between;">
                                         <button class="sample-chip digit-sample-btn" data-digit="0">0</button>
                                         <button class="sample-chip digit-sample-btn" data-digit="1">1</button>
                                         <button class="sample-chip digit-sample-btn" data-digit="2">2</button>
                                         <button class="sample-chip digit-sample-btn" data-digit="3">3</button>
+                                        <button class="sample-chip digit-sample-btn" data-digit="4">4</button>
+                                        <button class="sample-chip digit-sample-btn" data-digit="5">5</button>
+                                        <button class="sample-chip digit-sample-btn" data-digit="6">6</button>
                                         <button class="sample-chip digit-sample-btn" data-digit="7">7</button>
                                         <button class="sample-chip digit-sample-btn" data-digit="8">8</button>
+                                        <button class="sample-chip digit-sample-btn" data-digit="9">9</button>
                                     </div>
                                 </div>
                             </div>
@@ -411,9 +414,10 @@
                                 <div class="form-group">
                                     <label class="form-label">Learning Rate (&alpha;):</label>
                                     <select id="lr-select" class="form-input" style="padding: 0.45rem 0.75rem; font-family: var(--font-mono);">
-                                        <option value="0.005">0.005 (Conservative)</option>
-                                        <option value="0.01" selected>0.01 (Optimal Convergence)</option>
-                                        <option value="0.04">0.04 (Aggressive)</option>
+                                        <option value="0.001">0.001 (Conservative / Slow Descent)</option>
+                                        <option value="0.01" selected>0.01 (Optimal AdamW Convergence)</option>
+                                        <option value="0.08">0.08 (High / Oscillating Landscape)</option>
+                                        <option value="0.25">0.25 (Unstable / Gradient Explosion)</option>
                                     </select>
                                 </div>
 
@@ -489,36 +493,7 @@
             </div>
         </section>
 
-        <!-- Academic Roadmap & Trajectory Section -->
-        <section class="section" id="roadmap">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag badge badge-neutral">
-                        Four-Year Trajectory
-                    </span>
-                    <h2 class="section-title">Academic &amp; Research Roadmap</h2>
-                    <p class="section-desc">
-                        Milestone plan from first-year foundations at Dayananda Sagar University to advanced systems and research.
-                    </p>
-                </div>
-
-                <div class="roadmap-timeline" id="roadmap-timeline">
-                    <!-- Injected by app.js -->
-                </div>
-
-                <!-- Certifications Grid -->
-                <div style="max-width: 820px; margin: 2.5rem auto 0 auto;">
-                    <h3 style="font-size: 1.15rem; margin-bottom: 1rem; color: var(--text-white);">
-                        Completed Specializations
-                    </h3>
-                    <div class="cert-grid" id="cert-grid">
-                        <!-- Injected by app.js -->
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
+        <!-- Contact & Collaboration Section (No Form Fields) -->
         <section class="section" id="contact">
             <div class="container">
                 <div class="section-header">
@@ -531,66 +506,59 @@
                     </p>
                 </div>
 
-                <div class="contact-grid">
-                    <!-- Left: Info & Copy -->
-                    <div class="contact-info-card">
-                        <h3 style="font-size: 1.3rem; margin-bottom: 0.4rem; color: var(--text-white);">Direct Channels</h3>
-                        <p style="color: var(--text-secondary); font-size: 0.88rem; line-height: 1.55;">
-                            Feel free to reach out directly via email or copy contact credentials below.
-                        </p>
-
-                        <div class="quick-copy-box">
-                            <div class="copy-pill" data-copy="sathvik.aiml@dsu.edu.in" title="Click to copy email">
-                                <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                    <i data-lucide="mail" style="width: 14px; height: 14px; color: var(--text-muted);"></i>
-                                    <span>sathvik.aiml@dsu.edu.in</span>
+                <div class="collab-hub-container">
+                    <div class="collab-cards-grid">
+                        <!-- Direct Email Card -->
+                        <a href="mailto:sathvik.aiml@dsu.edu.in" class="collab-hub-card email-hub-card">
+                            <div class="collab-card-top">
+                                <div class="collab-icon-box">
+                                    <i data-lucide="mail"></i>
                                 </div>
-                                <span style="font-size: 0.72rem; color: var(--text-dim);">Copy</span>
+                                <span class="badge badge-green">Primary</span>
                             </div>
+                            <div class="collab-card-title">Direct Email</div>
+                            <div class="collab-card-address">sathvik.aiml@dsu.edu.in</div>
+                            <p class="collab-card-desc">
+                                Reach out directly for research collaborations, project discussions, or academic inquiries.
+                            </p>
+                            <div class="collab-card-action">
+                                <span class="btn btn-sm btn-primary-white">Send Email <i data-lucide="arrow-up-right" style="width: 14px; height: 14px; margin-left: 4px;"></i></span>
+                            </div>
+                        </a>
 
-                            <div class="copy-pill" data-copy="sathvik_aiml#2029" title="Click to copy Discord handle">
-                                <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                    <i data-lucide="message-circle" style="width: 14px; height: 14px; color: var(--text-muted);"></i>
-                                    <span>Discord: sathvik_aiml#2029</span>
+                        <!-- GitHub Profile Card -->
+                        <a href="https://github.com/sathviik27" target="_blank" rel="noopener noreferrer" class="collab-hub-card github-hub-card">
+                            <div class="collab-card-top">
+                                <div class="collab-icon-box">
+                                    <i data-lucide="github"></i>
                                 </div>
-                                <span style="font-size: 0.72rem; color: var(--text-dim);">Copy</span>
+                                <span class="badge badge-neutral">Open Source</span>
                             </div>
-                        </div>
-
-                        <div style="margin-top: 1.8rem;">
-                            <div style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.6rem; color: var(--text-secondary);">Social Platforms</div>
-                            <div style="display: flex; gap: 0.5rem;">
-                                <a href="https://github.com/sathviik27" target="_blank" class="social-icon-btn" aria-label="GitHub"><i data-lucide="github"></i></a>
-                                <a href="https://linkedin.com" target="_blank" class="social-icon-btn" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
-                                <a href="https://kaggle.com" target="_blank" class="social-icon-btn" aria-label="Kaggle"><i data-lucide="award"></i></a>
-                                <a href="https://x.com" target="_blank" class="social-icon-btn" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+                            <div class="collab-card-title">GitHub</div>
+                            <div class="collab-card-address">github.com/sathviik27</div>
+                            <p class="collab-card-desc">
+                                Explore algorithmic implementations, machine learning experiments, and repositories.
+                            </p>
+                            <div class="collab-card-action">
+                                <span class="btn btn-sm btn-glass">View Repositories <i data-lucide="arrow-up-right" style="width: 14px; height: 14px; margin-left: 4px;"></i></span>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
-                    <!-- Right: Contact Form -->
-                    <form class="contact-form" id="contact-form">
-                        <h3 style="font-size: 1.25rem; color: var(--text-white); margin-bottom: 0.2rem;">Send a Message</h3>
-                        
-                        <div class="form-group">
-                            <label class="form-label" for="contact-name">Name</label>
-                            <input type="text" id="contact-name" class="form-input" placeholder="Your Name" required>
+                    <!-- Quick Copy & Social Bar -->
+                    <div class="collab-footer-bar">
+                        <div class="collab-copy-pill copy-pill" data-copy="sathvik.aiml@dsu.edu.in" title="Click to copy email address">
+                            <i data-lucide="copy" style="width: 14px; height: 14px; color: var(--accent-green);"></i>
+                            <span>Copy Email Address</span>
                         </div>
 
-                        <div class="form-group">
-                            <label class="form-label" for="contact-email">Email Address</label>
-                            <input type="email" id="contact-email" class="form-input" placeholder="name@domain.com" required>
+                        <div class="collab-socials">
+                            <a href="https://github.com/sathviik27" target="_blank" class="social-icon-btn" aria-label="GitHub"><i data-lucide="github"></i></a>
+                            <a href="https://linkedin.com" target="_blank" class="social-icon-btn" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                            <a href="https://kaggle.com" target="_blank" class="social-icon-btn" aria-label="Kaggle"><i data-lucide="award"></i></a>
+                            <a href="https://x.com" target="_blank" class="social-icon-btn" aria-label="Twitter"><i data-lucide="twitter"></i></a>
                         </div>
-
-                        <div class="form-group">
-                            <label class="form-label" for="contact-message">Message</label>
-                            <textarea id="contact-message" class="form-textarea" placeholder="Your message or research inquiry..." required></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary-white">
-                            Send Message
-                        </button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </section>

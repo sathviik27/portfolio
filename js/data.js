@@ -189,6 +189,7 @@ const PORTFOLIO_DATA = {
             date: "Feb 2026",
             readTime: "7 min read",
             category: "Deep Learning Foundations",
+            thumbnail: "assets/images/blog-autograd.jpg",
             tags: ["Python", "Neural Networks", "Mathematics", "Autograd"],
             content: `
 ### Introduction
@@ -278,6 +279,7 @@ def backward(self):
             date: "Jan 2026",
             readTime: "6 min read",
             category: "Computer Science",
+            thumbnail: "assets/images/blog-systems.jpg",
             tags: ["C++", "Core Java", "Memory Management", "DSA"],
             content: `
 ### Why Master Both C++ and Java?
@@ -345,6 +347,7 @@ Understanding C++ teaches you how the computer hardware actually operates with m
             date: "Dec 2025",
             readTime: "5 min read",
             category: "Mathematics for ML",
+            thumbnail: "assets/images/blog-geometry.jpg",
             tags: ["Linear Algebra", "Geometry", "PyTorch", "Calculus"],
             content: `
 ### The Geometry of Matrix Multiplication

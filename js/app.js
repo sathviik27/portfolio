@@ -97,12 +97,9 @@ class App {
         this.renderSkills();
         this.renderProjects();
         this.renderBlogs();
-        this.renderRoadmap();
-        this.renderCertifications();
         this.initNavigation();
         this.initProjectFilter();
         this.initModals();
-        this.initContactForm();
         this.initCopyPills();
         this.initLucideIcons();
     }
@@ -301,7 +298,12 @@ class App {
 
         grid.innerHTML = this.data.blogs.map(b => `
             <a href="blog.html?article=${b.id}" class="journal-card" style="text-decoration: none; color: inherit;">
-                <div>
+                ${b.thumbnail ? `
+                <div class="journal-thumb-wrap">
+                    <img src="${b.thumbnail}" alt="${b.title}" class="journal-thumb-img" loading="lazy">
+                </div>
+                ` : ''}
+                <div class="journal-card-body">
                     <div class="journal-meta">
                         <span class="badge badge-neutral" style="font-size: 0.7rem;">${b.category}</span>
                         <span class="journal-date">${b.date} • ${b.readTime}</span>
@@ -319,45 +321,7 @@ class App {
         this.initLucideIcons();
     }
 
-    /* ------------------------------------------------------------------------
-       7. Roadmap & Milestones
-       ------------------------------------------------------------------------ */
-    renderRoadmap() {
-        const timeline = document.getElementById('roadmap-timeline');
-        if (!timeline) return;
 
-        timeline.innerHTML = this.data.roadmap.map(item => `
-            <div class="roadmap-item ${item.status}">
-                <div class="roadmap-node"></div>
-                <div class="roadmap-card">
-                    <div class="roadmap-header">
-                        <span class="roadmap-year">${item.year}</span>
-                        <span class="badge ${item.status === 'current' ? 'badge-green' : 'badge-neutral'}">${item.badge}</span>
-                    </div>
-                    <h4 style="font-size: 1rem; margin-bottom: 0.35rem; color: var(--text-white); font-weight: 600;">${item.title}</h4>
-                    <ul class="roadmap-bullets">
-                        ${item.milestones.map(m => `<li>${m}</li>`).join('')}
-                    </ul>
-                </div>
-            </div>
-        `).join('');
-    }
-
-    renderCertifications() {
-        const certGrid = document.getElementById('cert-grid');
-        if (!certGrid) return;
-
-        certGrid.innerHTML = this.data.certifications.map(c => `
-            <div class="cert-card">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.35rem;">
-                    <h4 style="font-size: 0.92rem; color: var(--text-white); font-weight: 600;">${c.name}</h4>
-                    <span class="badge badge-neutral" style="font-size: 0.68rem;">${c.date}</span>
-                </div>
-                <div style="color: var(--accent-green); font-size: 0.78rem; font-family: var(--font-mono); margin-bottom: 0.25rem;">${c.issuer}</div>
-                <div style="color: var(--text-muted); font-size: 0.75rem;">${c.skills}</div>
-            </div>
-        `).join('');
-    }
 
     /* ------------------------------------------------------------------------
        8. Modals: Project Architecture & Resume
@@ -464,23 +428,6 @@ class App {
                     });
                 }
             });
-        });
-    }
-
-    /* ------------------------------------------------------------------------
-       10. Contact Form Dispatch Simulation
-       ------------------------------------------------------------------------ */
-    initContactForm() {
-        const form = document.getElementById('contact-form');
-        if (!form) return;
-
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('contact-name').value;
-
-            this.showToast(`Message sent. Thank you, ${name}.`);
-            if (window.UI_AUDIO) window.UI_AUDIO.playSuccess();
-            form.reset();
         });
     }
 
