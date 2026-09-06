@@ -186,13 +186,27 @@ class DottedWaveBackground {
             this.ctx.beginPath();
             this.ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
 
-            // Subtle color nuance: Peaks have a soft emerald/white tint, base has soft white
-            if (dot.height > 15) {
-                this.ctx.fillStyle = `rgba(48, 209, 88, ${dot.opacity * 0.9})`;
-            } else if (dot.height < -12) {
-                this.ctx.fillStyle = `rgba(255, 255, 255, ${dot.opacity * 0.4})`;
+            // Dynamic Theme Awareness
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+
+            if (isLight) {
+                // Apple Light Theme: Slate & Emerald dots on silver/white canvas
+                if (dot.height > 15) {
+                    this.ctx.fillStyle = `rgba(31, 136, 61, ${dot.opacity * 0.85})`;
+                } else if (dot.height < -12) {
+                    this.ctx.fillStyle = `rgba(30, 30, 35, ${dot.opacity * 0.22})`;
+                } else {
+                    this.ctx.fillStyle = `rgba(30, 30, 35, ${dot.opacity * 0.45})`;
+                }
             } else {
-                this.ctx.fillStyle = `rgba(255, 255, 255, ${dot.opacity * 0.75})`;
+                // Cupertino Dark Theme: White & Jade dots on black canvas
+                if (dot.height > 15) {
+                    this.ctx.fillStyle = `rgba(48, 209, 88, ${dot.opacity * 0.9})`;
+                } else if (dot.height < -12) {
+                    this.ctx.fillStyle = `rgba(255, 255, 255, ${dot.opacity * 0.4})`;
+                } else {
+                    this.ctx.fillStyle = `rgba(255, 255, 255, ${dot.opacity * 0.75})`;
+                }
             }
 
             this.ctx.fill();

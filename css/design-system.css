@@ -57,6 +57,108 @@
   --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* --------------------------------------------------------------------------
+   Apple Cupertino Light Theme
+   -------------------------------------------------------------------------- */
+[data-theme="light"] {
+  --bg-black: #F5F5F7;
+  --bg-deep: #FFFFFF;
+  --bg-elevated: #E5E5EA;
+  --bg-card: rgba(255, 255, 255, 0.88);
+  --bg-card-hover: #FFFFFF;
+  --bg-card-active: #F2F2F7;
+
+  --accent-pink: #D70035;
+  --accent-pink-subtle: rgba(215, 0, 53, 0.08);
+  --accent-pink-border: rgba(215, 0, 53, 0.22);
+  
+  --accent-green: #1F883D;
+  --accent-green-subtle: rgba(31, 136, 61, 0.09);
+  --accent-green-border: rgba(31, 136, 61, 0.22);
+
+  --glass-nav: rgba(245, 245, 247, 0.86);
+  --glass-card: rgba(255, 255, 255, 0.92);
+  --glass-modal: rgba(255, 255, 255, 0.97);
+  --border-hairline: rgba(0, 0, 0, 0.08);
+  --border-subtle: rgba(0, 0, 0, 0.14);
+  --border-focus: rgba(0, 0, 0, 0.4);
+
+  --text-white: #1D1D1F;
+  --text-primary: #1D1D1F;
+  --text-secondary: #515154;
+  --text-muted: #6E6E73;
+  --text-dim: #86868B;
+}
+
+[data-theme="light"] html {
+  color-scheme: light;
+  background-color: #F5F5F7;
+}
+
+[data-theme="light"] body {
+  background-color: #F5F5F7;
+  color: #1D1D1F;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-track {
+  background: #F5F5F7;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] ::selection {
+  background-color: rgba(0, 0, 0, 0.12);
+  color: #1D1D1F;
+}
+
+[data-theme="light"] .apple-silver-text {
+  background: linear-gradient(180deg, #1D1D1F 0%, #515154 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .badge-neutral {
+  background: rgba(0, 0, 0, 0.05);
+  color: #48484A;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .badge-green {
+  background: rgba(31, 136, 61, 0.1);
+  color: #1F883D;
+  border-color: rgba(31, 136, 61, 0.25);
+}
+
+[data-theme="light"] .btn-primary-white {
+  background: #1D1D1F;
+  color: #FFFFFF;
+  border-color: #1D1D1F;
+}
+
+[data-theme="light"] .btn-primary-white:hover {
+  background: #000000;
+  color: #FFFFFF;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .btn-glass {
+  background: rgba(0, 0, 0, 0.04);
+  color: #1D1D1F;
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .btn-glass:hover {
+  background: rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.22);
+}
+
+[data-theme="light"] .ambient-pulp,
+[data-theme="light"] .ambient-rind {
+  opacity: 0.15;
+}
+
 /* Base Resets */
 *, *::before, *::after {
   box-sizing: border-box;

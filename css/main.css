@@ -122,6 +122,43 @@ main, header, footer, nav, section, .modal-overlay, .reader-overlay {
   gap: 0.6rem;
 }
 
+.theme-toggle-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  border: 1px solid var(--border-hairline);
+  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.theme-toggle-btn:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-subtle);
+  transform: scale(1.05);
+}
+
+/* Theme Icon visibility */
+[data-theme="light"] .theme-icon-light {
+  display: none;
+}
+
+[data-theme="light"] .theme-icon-dark {
+  display: inline-flex;
+}
+
+:root:not([data-theme="light"]) .theme-icon-light {
+  display: inline-flex;
+}
+
+:root:not([data-theme="light"]) .theme-icon-dark {
+  display: none;
+}
+
 .mobile-menu-toggle {
   display: none;
   background: transparent;
@@ -1607,4 +1644,101 @@ main, header, footer, nav, section, .modal-overlay, .reader-overlay {
     gap: 1.2rem;
     align-items: flex-start;
   }
+}
+
+/* --------------------------------------------------------------------------
+   15. Apple Cupertino Light Mode Specific Refinements
+   -------------------------------------------------------------------------- */
+[data-theme="light"] .hero-visual-card,
+[data-theme="light"] .bento-card,
+[data-theme="light"] .collab-hub-card,
+[data-theme="light"] .journal-card,
+[data-theme="light"] .project-card,
+[data-theme="light"] .digit-canvas-box,
+[data-theme="light"] .digit-results-box,
+[data-theme="light"] .sentiment-demo-box,
+[data-theme="light"] .loss-visualizer-grid,
+[data-theme="light"] .skills-category-card,
+[data-theme="light"] .collab-footer-bar {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="light"] .hero-visual-card:hover,
+[data-theme="light"] .bento-card:hover,
+[data-theme="light"] .collab-hub-card:hover,
+[data-theme="light"] .journal-card:hover,
+[data-theme="light"] .project-card:hover {
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .social-icon-btn {
+  background: rgba(0, 0, 0, 0.04);
+  color: #515154;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .social-icon-btn:hover {
+  background: #1D1D1F;
+  color: #FFFFFF;
+  border-color: #1D1D1F;
+}
+
+[data-theme="light"] .collab-icon-box {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #1D1D1F;
+}
+
+[data-theme="light"] .collab-copy-pill {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #515154;
+}
+
+[data-theme="light"] .collab-copy-pill:hover {
+  background: rgba(0, 0, 0, 0.08);
+  color: #1D1D1F;
+}
+
+[data-theme="light"] .journal-thumb-wrap {
+  background: #E5E5EA;
+}
+
+[data-theme="light"] .code-box,
+[data-theme="light"] pre {
+  background: #E5E5EA !important;
+  color: #1D1D1F !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .playground-tab-btn {
+  color: #6E6E73;
+}
+
+[data-theme="light"] .playground-tab-btn.active {
+  color: #1D1D1F;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .sample-chip {
+  background: rgba(0, 0, 0, 0.04);
+  color: #515154;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .sample-chip:hover {
+  background: rgba(0, 0, 0, 0.08);
+  color: #1D1D1F;
+}
+
+[data-theme="light"] .prob-track {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .prob-fill {
+  background: #86868B;
+}
+
+[data-theme="light"] .prob-fill.is-highest {
+  background: #1F883D;
 }

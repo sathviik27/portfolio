@@ -97,6 +97,7 @@ class App {
         this.renderSkills();
         this.renderProjects();
         this.renderBlogs();
+        this.initThemeToggle();
         this.initNavigation();
         this.initProjectFilter();
         this.initModals();
@@ -108,6 +109,32 @@ class App {
         if (window.lucide) {
             window.lucide.createIcons();
         }
+        this.renderBrandIcons();
+    }
+
+    renderBrandIcons() {
+        const ghSvg = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="brand-svg"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>`;
+        const inSvg = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="brand-svg"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>`;
+        const twSvg = `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="brand-svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>`;
+
+        document.querySelectorAll('[data-lucide="github"]').forEach(el => { el.outerHTML = ghSvg; });
+        document.querySelectorAll('[data-lucide="linkedin"]').forEach(el => { el.outerHTML = inSvg; });
+        document.querySelectorAll('[data-lucide="twitter"]').forEach(el => { el.outerHTML = twSvg; });
+    }
+
+    initThemeToggle() {
+        const toggleBtn = document.getElementById('theme-toggle-btn');
+        if (!toggleBtn) return;
+
+        toggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+            const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', nextTheme);
+            localStorage.setItem('sathvik_theme', nextTheme);
+
+            if (window.UI_AUDIO) window.UI_AUDIO.playPop();
+            this.showToast(`Theme: ${nextTheme === 'light' ? 'Apple Light' : 'Cupertino Dark'}`);
+        });
     }
 
     /* ------------------------------------------------------------------------
@@ -254,7 +281,7 @@ class App {
                         </button>
                         <div style="display: flex; gap: 0.45rem;">
                             <a href="${p.githubUrl}" target="_blank" class="btn btn-glass btn-sm" title="View Code">
-                                <i data-lucide="github" style="width: 13px; height: 13px;"></i> Code
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>Code
                             </a>
                             <a href="${p.liveDemoUrl}" class="btn btn-primary-white btn-sm">
                                 <i data-lucide="play" style="width: 13px; height: 13px;"></i> Demo
@@ -389,7 +416,7 @@ class App {
 
                 <div style="display: flex; justify-content: flex-end; gap: 0.6rem;">
                     <a href="${p.githubUrl}" target="_blank" class="btn btn-glass btn-sm">
-                        <i data-lucide="github" style="width: 13px; height: 13px;"></i> View Repository
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 5px;"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>View Repository
                     </a>
                     ${p.isPlaygroundLinked ? `
                         <a href="#playground" class="btn btn-primary-white btn-sm modal-jump-playground">
