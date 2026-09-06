@@ -532,8 +532,9 @@ class AIPlayground {
     }
 
     drawSampleDigit(digit) {
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
         this.clearCanvas();
-        this.ctx.strokeStyle = '#FFFFFF';
+        this.ctx.strokeStyle = isLight ? '#1D1D1F' : '#FFFFFF';
         this.ctx.lineWidth = 15;
         this.ctx.lineCap = 'round';
         this.ctx.lineJoin = 'round';
@@ -884,11 +885,12 @@ class AIPlayground {
         const ctx = this.lossCtx;
         const w = this.lossCanvas.width;
         const h = this.lossCanvas.height;
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
 
         ctx.clearRect(0, 0, w, h);
 
         // Subtle grid lines
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+        ctx.strokeStyle = isLight ? 'rgba(0, 0, 0, 0.05)' : 'rgba(255, 255, 255, 0.05)';
         ctx.lineWidth = 1;
         for (let y = 30; y < h - 30; y += 45) {
             ctx.beginPath();
@@ -898,7 +900,7 @@ class AIPlayground {
         }
 
         // Axes
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.16)';
+        ctx.strokeStyle = isLight ? 'rgba(0, 0, 0, 0.16)' : 'rgba(255, 255, 255, 0.16)';
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(40, 20);
@@ -906,13 +908,13 @@ class AIPlayground {
         ctx.lineTo(w - 20, h - 30);
         ctx.stroke();
 
-        ctx.fillStyle = '#71717A';
+        ctx.fillStyle = isLight ? '#515154' : '#71717A';
         ctx.font = '10px -apple-system, monospace';
         ctx.fillText('Loss (J)', 8, 25);
         ctx.fillText('Epochs', w - 45, h - 10);
 
         if (this.trainLossHistory.length < 2) {
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.28)';
+            ctx.fillStyle = isLight ? 'rgba(0, 0, 0, 0.35)' : 'rgba(255, 255, 255, 0.28)';
             ctx.font = '12px -apple-system, sans-serif';
             ctx.textAlign = 'center';
             ctx.fillText("Click 'Train Model' to simulate backprop", w / 2, h / 2);
@@ -924,10 +926,10 @@ class AIPlayground {
         const getX = (idx) => 40 + (idx / (this.maxEpochs - 1)) * (w - 70);
         const getY = (loss) => (h - 30) - (loss / maxLoss) * (h - 60);
 
-        // Training Loss (Solid White Glow)
-        ctx.shadowColor = 'rgba(255, 255, 255, 0.3)';
+        // Training Loss
+        ctx.shadowColor = isLight ? 'rgba(31, 136, 61, 0.25)' : 'rgba(255, 255, 255, 0.3)';
         ctx.shadowBlur = 6;
-        ctx.strokeStyle = '#FFFFFF';
+        ctx.strokeStyle = isLight ? '#1F883D' : '#FFFFFF';
         ctx.lineWidth = 2.2;
         ctx.beginPath();
         for (let i = 0; i < this.trainLossHistory.length; i++) {
@@ -939,7 +941,7 @@ class AIPlayground {
         ctx.shadowBlur = 0;
 
         // Validation Loss (Dashed Accent)
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.42)';
+        ctx.strokeStyle = isLight ? 'rgba(31, 136, 61, 0.5)' : 'rgba(255, 255, 255, 0.42)';
         ctx.lineWidth = 1.5;
         ctx.setLineDash([4, 3]);
         ctx.beginPath();

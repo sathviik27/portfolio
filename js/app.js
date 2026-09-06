@@ -129,6 +129,11 @@ class App {
             document.documentElement.setAttribute('data-theme', nextTheme);
             localStorage.setItem('sathvik_theme', nextTheme);
 
+            window.dispatchEvent(new CustomEvent('themechange', { detail: { theme: nextTheme } }));
+            if (window.AI_STUDIO && typeof window.AI_STUDIO.handleThemeChange === 'function') {
+                window.AI_STUDIO.handleThemeChange(nextTheme);
+            }
+
             if (window.UI_AUDIO) window.UI_AUDIO.playPop();
             this.showToast(`Theme: ${nextTheme === 'light' ? 'Apple Light' : 'Cupertino Dark'}`);
         });
@@ -198,7 +203,7 @@ class App {
     }
 
     /* ------------------------------------------------------------------------
-       3. Redesigned Apple Bento Toolkit (Languages & Frameworks)
+       3. Minimal & Detailed Unified Toolkit (Languages & Frameworks)
        ------------------------------------------------------------------------ */
     renderToolkit() {
         const container = document.getElementById('toolkit-bento-grid');
@@ -221,51 +226,40 @@ class App {
             terminal: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A3E635" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>`
         };
 
-        const domains = [
-            { key: 'systems', colSpan: 'col-span-12' },
-            { key: 'ai', colSpan: 'col-span-6' },
-            { key: 'mathematics', colSpan: 'col-span-6' },
-            { key: 'toolchain', colSpan: 'col-span-12' }
-        ];
-
-        container.innerHTML = domains.map(({ key, colSpan }) => {
+        // Collect all items across domains into a single unified list
+        const allItems = [];
+        const domainOrder = ['systems', 'ai', 'mathematics', 'toolchain'];
+        domainOrder.forEach(key => {
             const domain = this.data.toolkit[key];
-            if (!domain) return '';
+            if (domain && Array.isArray(domain.items)) {
+                domain.items.forEach(item => allItems.push(item));
+            }
+        });
 
-            return `
-                <div class="toolkit-domain-card ${colSpan}">
-                    <div class="toolkit-domain-header">
-                        <div>
-                            <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.35rem;">
-                                <h3 class="toolkit-domain-title">${domain.category}</h3>
+        // Render as a single, minimal yet detailed section grid
+        container.innerHTML = `
+            <div class="toolkit-unified-wrap">
+                <div class="toolkit-items-grid unified-grid">
+                    ${allItems.map(item => `
+                        <div class="toolkit-item unified-card">
+                            <div class="toolkit-item-top">
+                                <div class="toolkit-item-icon">
+                                    ${iconMap[item.icon] || iconMap.terminal}
+                                </div>
+                                <div class="toolkit-item-head-text">
+                                    <div class="toolkit-item-name">${item.name}</div>
+                                    <div class="toolkit-item-level">${item.level}</div>
+                                </div>
                             </div>
-                            <p class="toolkit-domain-subtitle">${domain.subtitle}</p>
+                            <p class="toolkit-item-desc">${item.desc}</p>
+                            <div class="toolkit-item-tags">
+                                ${item.tags.map(t => `<span class="tag-pill">${t}</span>`).join('')}
+                            </div>
                         </div>
-                        <span class="badge badge-neutral">${domain.badge}</span>
-                    </div>
-
-                    <div class="toolkit-items-grid">
-                        ${domain.items.map(item => `
-                            <div class="toolkit-item">
-                                <div class="toolkit-item-top">
-                                    <div class="toolkit-item-icon">
-                                        ${iconMap[item.icon] || iconMap.terminal}
-                                    </div>
-                                    <div class="toolkit-item-head-text">
-                                        <div class="toolkit-item-name">${item.name}</div>
-                                        <div class="toolkit-item-level">${item.level}</div>
-                                    </div>
-                                </div>
-                                <p class="toolkit-item-desc">${item.desc}</p>
-                                <div class="toolkit-item-tags">
-                                    ${item.tags.map(t => `<span class="tag-pill">${t}</span>`).join('')}
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
+                    `).join('')}
                 </div>
-            `;
-        }).join('');
+            </div>
+        `;
     }
 
     /* ------------------------------------------------------------------------

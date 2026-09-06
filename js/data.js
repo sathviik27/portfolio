@@ -19,8 +19,8 @@ const PORTFOLIO_DATA = {
         quoteAuthor: "Sathvik • Dayananda Sagar University (DSU)",
         socials: {
             github: "https://github.com/sathviik27",
-            linkedin: "https://linkedin.com",
-            kaggle: "https://kaggle.com",
+            linkedin: "https://www.linkedin.com/in/sathvik-r27/",
+            kaggle: "https://github.com/sathviik27",
             huggingface: "https://huggingface.co",
             twitter: "https://x.com",
             email: "sathvik.aiml@dsu.edu.in"
