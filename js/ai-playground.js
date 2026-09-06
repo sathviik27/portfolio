@@ -286,6 +286,8 @@ class AIPlayground {
     predictDigit() {
         const imgData = this.ctx.getImageData(0, 0, this.canvas.width, this.canvas.height);
         const pixels = imgData.data;
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        const bgVal = isLight ? 255 : 0;
 
         let activePixels = 0;
         let sumX = 0, sumY = 0;
@@ -294,7 +296,7 @@ class AIPlayground {
         for (let y = 0; y < 250; y++) {
             for (let x = 0; x < 250; x++) {
                 const idx = (y * 250 + x) * 4;
-                if (pixels[idx] > 40) {
+                if (Math.abs(pixels[idx] - bgVal) > 40) {
                     activePixels++;
                     sumX += x;
                     sumY += y;
@@ -330,7 +332,7 @@ class AIPlayground {
                         const py = Math.min(249, sampleY + dy);
                         const px = Math.min(249, sampleX + dx);
                         const pIdx = (py * 250 + px) * 4;
-                        if (pixels[pIdx] > 40) density++;
+                        if (Math.abs(pixels[pIdx] - bgVal) > 40) density++;
                     }
                 }
                 userVector[r * 7 + c] = density / (windowR * windowC);
@@ -359,7 +361,7 @@ class AIPlayground {
                 const origY = Math.floor(minY + (y / gridH) * height);
                 const origX = Math.floor(minX + (x / gridW) * width);
                 const idx = (origY * 250 + origX) * 4;
-                if (pixels[idx] > 50) binaryGrid[y][x] = 1;
+                if (Math.abs(pixels[idx] - bgVal) > 40) binaryGrid[y][x] = 1;
             }
         }
 
