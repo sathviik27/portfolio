@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Engineering Journal & Technical Articles by Sathvik - AI & ML Student at Dayananda Sagar University, Bangalore.">
+    <title>Engineering Journal | Sathvik</title>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .blog-page-wrapper {
+            padding: 8.5rem 0 6rem 0;
+            min-height: 92vh;
+        }
+
+        .article-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .article-view-container {
+            max-width: 840px;
+            margin: 0 auto;
+            animation: articleFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes articleFadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .article-back-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2.2rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: color var(--transition-fast);
+        }
+
+        .article-back-nav:hover {
+            color: var(--text-white);
+        }
+
+        .article-header-box {
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border-hairline);
+            padding-bottom: 2rem;
+        }
+
+        .article-hero-title {
+            font-size: clamp(2.2rem, 4.8vw, 3.4rem);
+            font-weight: 800;
+            line-height: 1.12;
+            letter-spacing: -0.04em;
+            margin: 1rem 0 1.2rem 0;
+        }
+
+        .article-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.8rem;
+        }
+
+        .article-author-byline {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .byline-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--border-hairline);
+            object-fit: cover;
+        }
+
+        .byline-name {
+            font-weight: 700;
+            color: var(--text-white);
+            font-size: 0.95rem;
+        }
+
+        .byline-meta {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .article-content-body {
+            font-size: 1.05rem;
+            color: #D4D4D8;
+            line-height: 1.8;
+        }
+
+        .article-content-body h2, .article-content-body h3 {
+            color: var(--text-white);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin: 2.8rem 0 1rem 0;
+        }
+
+        .article-content-body h2 { font-size: 1.65rem; }
+        .article-content-body h3 { font-size: 1.35rem; }
+
+        .article-content-body p {
+            margin-bottom: 1.4rem;
+        }
+
+        .article-content-body pre {
+            background: #09090C;
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 1.4rem;
+            overflow-x: auto;
+            margin: 1.8rem 0;
+            position: relative;
+        }
+
+        .article-content-body code {
+            font-family: var(--font-mono);
+            font-size: 0.88em;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            color: var(--accent-green);
+        }
+
+        .article-content-body pre code {
+            background: transparent;
+            padding: 0;
+            color: #F4F4F5;
+            font-size: 0.84rem;
+            line-height: 1.65;
+        }
+
+        .code-copy-btn {
+            position: absolute;
+            top: 0.8rem;
+            right: 0.8rem;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-hairline);
+            color: var(--text-secondary);
+            font-size: 0.7rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .code-copy-btn:hover {
+            background: #FFFFFF;
+            color: #000000;
+        }
+
+        .article-content-body hr {
+            border: none;
+            border-top: 1px solid var(--border-hairline);
+            margin: 3rem 0;
+        }
+
+        .article-content-body ul, .article-content-body ol {
+            margin-bottom: 1.4rem;
+            padding-left: 1.6rem;
+        }
+
+        .article-content-body li {
+            margin-bottom: 0.6rem;
+        }
+
+        .article-pagination-nav {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin-top: 4rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--border-hairline);
+        }
+
+        .pagination-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-hairline);
+            border-radius: var(--radius-md);
+            padding: 1.2rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all var(--transition-fast);
+        }
+
+        .pagination-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-subtle);
+            transform: translateY(-2px);
+        }
+
+        .pagination-label {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.3rem;
+        }
+
+        .pagination-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-white);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ambient Subtle Background -->
+    <canvas id="particles-canvas"></canvas>
+    <div class="ambient-glow ambient-pulp"></div>
+    <div class="ambient-glow ambient-rind"></div>
+
+    <!-- Apple Navigation Bar -->
+    <nav class="navbar">
+        <a href="index.html" class="brand-logo">
+            <span>Sathvik</span>
+            <span class="brand-sub">DSU • AI &amp; ML</span>
+        </a>
+
+        <div class="nav-actions">
+            <a href="index.html" class="btn btn-glass btn-sm">
+                <i data-lucide="arrow-left" style="width: 14px; height: 14px;"></i> Return to Portfolio
+            </a>
+            <a href="index.html#contact" class="btn btn-primary-white btn-sm">
+                Contact
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="blog-page-wrapper">
+        <div class="container">
+            <!-- 1. All Articles Listing View -->
+            <div id="blog-listing-view">
+                <div class="section-header" style="text-align: left; max-width: 100%; margin-bottom: 2.8rem;">
+                    <a href="index.html#journal" class="article-back-nav">
+                        <i data-lucide="arrow-left" style="width: 14px; height: 14px;"></i> Back to Portfolio Overview
+                    </a>
+                    <span class="section-tag badge badge-neutral" style="display: block; width: fit-content;">Engineering Journal</span>
+                    <h1 class="section-title" style="font-size: 2.8rem;">Technical Writing &amp; Notes</h1>
+                    <p class="section-desc">
+                        First-principles explorations in mathematics, machine learning theory, and systems engineering at Dayananda Sagar University.
+                    </p>
+                </div>
+
+                <div class="journal-grid" id="standalone-journal-grid">
+                    <!-- Injected by script -->
+                </div>
+            </div>
+
+            <!-- 2. Single Article Reader View -->
+            <div id="standalone-article-view" style="display: none;">
+                <article class="article-view-container">
+                    <a href="blog.html" id="back-to-journal-btn" class="article-back-nav">
+                        <i data-lucide="arrow-left" style="width: 14px; height: 14px;"></i> Back to All Articles
+                    </a>
+
+                    <header class="article-header-box">
+                        <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem;">
+                            <span class="badge badge-green" id="article-category-badge"></span>
+                            <span style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);" id="article-read-meta"></span>
+                        </div>
+
+                        <h1 class="article-hero-title apple-silver-text" id="article-title-heading"></h1>
+                        <p class="article-subtitle" id="article-subtitle-heading"></p>
+
+                        <div class="article-author-byline">
+                            <img src="assets/images/avatar.svg" alt="Sathvik" class="byline-avatar">
+                            <div>
+                                <div class="byline-name">Sathvik</div>
+                                <div class="byline-meta">1st Year AI &amp; ML • Dayananda Sagar University, Bangalore</div>
+                            </div>
+                        </div>
+                    </header>
+
+                    <div class="article-content-body" id="article-content-container"></div>
+
+                    <!-- Pagination / Next Articles -->
+                    <div class="article-pagination-nav" id="article-pagination">
+                        <!-- Injected by script -->
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- Apple Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div style="display: flex; align-items: center; gap: 0.6rem;">
+                <span style="font-family: var(--font-heading); font-weight: 700; font-size: 0.95rem;">Sathvik</span>
+                <span class="footer-meta">© 2026 • Dayananda Sagar University (DSU) AI &amp; ML</span>
+            </div>
+
+            <div class="footer-heartbeat">
+                <span class="pulse-dot"></span>
+                <span>Python • C++ • Core Java</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/particles.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) window.lucide.createIcons();
+
+            const grid = document.getElementById('standalone-journal-grid');
+            const listingView = document.getElementById('blog-listing-view');
+            const articleView = document.getElementById('standalone-article-view');
+            const backBtn = document.getElementById('back-to-journal-btn');
+
+            function renderListing() {
+                if (!grid) return;
+                grid.innerHTML = PORTFOLIO_DATA.blogs.map(b => `
+                    <a href="blog.html?article=${b.id}" class="journal-card article-card-link" data-id="${b.id}">
+                        <div>
+                            <div class="journal-meta">
+                                <span class="badge badge-neutral" style="font-size: 0.7rem;">${b.category}</span>
+                                <span class="journal-date">${b.date} • ${b.readTime}</span>
+                            </div>
+                            <h3 class="journal-title">${b.title}</h3>
+                            <p class="journal-excerpt">${b.subtitle}</p>
+                        </div>
+                        <div class="journal-footer">
+                            <span>Read Article</span>
+                            <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+                        </div>
+                    </a>
+                `).join('');
+
+                if (window.lucide) window.lucide.createIcons();
+            }
+
+            function parseMarkdown(md) {
+                if (!md) return '';
+                let html = md.trim();
+
+                // Code blocks with copy button
+                html = html.replace(/```([a-z0-9_-]*)\n([\s\S]*?)```/g, (match, lang, code) => {
+                    const cleanCode = code.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                    return `
+                        <pre><button class="code-copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText); this.innerText='Copied!'; setTimeout(() => this.innerText='Copy', 2000);">Copy</button><code class="language-${lang}">${cleanCode}</code></pre>
+                    `;
+                });
+
+                html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
+                html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
+                html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
+                html = html.replace(/^---$/gim, '<hr>');
+                html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+                html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+
+                const paragraphs = html.split(/\n\n+/);
+                html = paragraphs.map(p => {
+                    p = p.trim();
+                    if (p.startsWith('<h') || p.startsWith('<pre') || p.startsWith('<hr')) return p;
+                    return `<p>${p.replace(/\n/g, '<br>')}</p>`;
+                }).join('');
+
+                return html;
+            }
+
+            function loadArticle(id) {
+                const idx = PORTFOLIO_DATA.blogs.findIndex(b => b.id === id);
+                if (idx === -1) {
+                    showListing();
+                    return;
+                }
+
+                const article = PORTFOLIO_DATA.blogs[idx];
+                document.title = `${article.title} | Sathvik`;
+
+                document.getElementById('article-category-badge').textContent = article.category;
+                document.getElementById('article-read-meta').textContent = `${article.date} • ${article.readTime}`;
+                document.getElementById('article-title-heading').textContent = article.title;
+                document.getElementById('article-subtitle-heading').textContent = article.subtitle;
+                document.getElementById('article-content-container').innerHTML = parseMarkdown(article.content);
+
+                // Render pagination (prev/next)
+                const prev = idx > 0 ? PORTFOLIO_DATA.blogs[idx - 1] : null;
+                const next = idx < PORTFOLIO_DATA.blogs.length - 1 ? PORTFOLIO_DATA.blogs[idx + 1] : null;
+
+                let pagHtml = '';
+                if (prev) {
+                    pagHtml += `
+                        <a href="blog.html?article=${prev.id}" class="pagination-card">
+                            <div class="pagination-label">← Previous Article</div>
+                            <div class="pagination-title">${prev.title}</div>
+                        </a>
+                    `;
+                } else {
+                    pagHtml += `<div></div>`;
+                }
+
+                if (next) {
+                    pagHtml += `
+                        <a href="blog.html?article=${next.id}" class="pagination-card" style="text-align: right;">
+                            <div class="pagination-label">Next Article →</div>
+                            <div class="pagination-title">${next.title}</div>
+                        </a>
+                    `;
+                }
+
+                document.getElementById('article-pagination').innerHTML = pagHtml;
+
+                listingView.style.display = 'none';
+                articleView.style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                if (window.lucide) window.lucide.createIcons();
+            }
+
+            function showListing() {
+                document.title = 'Engineering Journal | Sathvik';
+                articleView.style.display = 'none';
+                listingView.style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            backBtn?.addEventListener('click', (e) => {
+                e.preventDefault();
+                history.pushState(null, '', 'blog.html');
+                showListing();
+            });
+
+            renderListing();
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const articleParam = urlParams.get('article');
+            if (articleParam) {
+                loadArticle(articleParam);
+            } else {
+                showListing();
+            }
+
+            window.addEventListener('popstate', () => {
+                const params = new URLSearchParams(window.location.search);
+                const a = params.get('article');
+                if (a) loadArticle(a); else showListing();
+            });
+        });
+    </script>
+</body>
+</html>

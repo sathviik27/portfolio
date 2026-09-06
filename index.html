@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Sathvik - First-Year AI & Machine Learning Undergraduate at Dayananda Sagar University, Bangalore. Exploring Python, C++, Core Java, and Neural Systems.">
+    <meta name="keywords" content="Sathvik, AI, Machine Learning, Dayananda Sagar University, DSU Bangalore, Python, C++, Core Java, PyTorch, Student Portfolio, Apple Minimalism">
+    <meta name="author" content="Sathvik">
+    <title>Sathvik | AI &amp; ML Undergrad • Dayananda Sagar University</title>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+    <!-- Ambient Subtle Particles & Background Soft Lighting -->
+    <canvas id="particles-canvas"></canvas>
+    <div class="ambient-glow ambient-pulp"></div>
+    <div class="ambient-glow ambient-rind"></div>
+
+    <!-- Apple-Style Minimalist Navigation Bar -->
+    <nav class="navbar">
+        <a href="#" class="brand-logo">
+            <span>Sathvik</span>
+            <span class="brand-sub">DSU • AI &amp; ML</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#about" class="nav-link">Foundations</a></li>
+            <li><a href="#skills" class="nav-link">Toolkit</a></li>
+            <li><a href="#playground" class="nav-link">AI Studio</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#journal" class="nav-link">Journal</a></li>
+            <li><a href="#roadmap" class="nav-link">Trajectory</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <button class="btn btn-glass btn-sm open-resume-btn" id="nav-resume-btn">
+                Resume
+            </button>
+            <a href="#contact" class="btn btn-primary-white btn-sm">
+                Get in Touch
+            </a>
+            <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <!-- Left Hero Content -->
+                    <div class="hero-left">
+                        <div class="hero-status-pill">
+                            <span class="badge badge-green">
+                                <span class="pulse-dot"></span>
+                                Dayananda Sagar University • 1st Year AI &amp; ML
+                            </span>
+                        </div>
+
+                        <h1 class="hero-title">
+                            Intelligence. <br>
+                            <span class="apple-silver-text">Engineered from first principles.</span>
+                        </h1>
+
+                        <p class="hero-bio">
+                            I am <strong style="color: var(--text-white);">Sathvik</strong>, a first-year AI &amp; Machine Learning undergraduate at <strong style="color: var(--text-white);">Dayananda Sagar University (DSU), Bangalore</strong>. Focused on computer science foundations across <strong style="color: var(--text-white);">Python, C++, and Core Java</strong>, exploring linear algebra and deep neural networks with disciplined mathematical rigor.
+                        </p>
+
+                        <div class="hero-cta-group">
+                            <a href="#projects" class="btn btn-primary-white">
+                                Explore Projects
+                            </a>
+                            <a href="#journal" class="btn btn-glass">
+                                Read Journal
+                            </a>
+                        </div>
+
+                        <!-- Minimalist Stats Counter -->
+                        <div class="hero-stats-row" id="hero-stats-row">
+                            <!-- Injected by app.js -->
+                        </div>
+                    </div>
+
+                    <!-- Right Visual Card -->
+                    <div class="hero-visual-card">
+                        <div class="avatar-container">
+                            <img src="assets/images/avatar.svg" alt="Sathvik Avatar" class="avatar-img">
+                        </div>
+                        <h2 class="hero-card-name">Sathvik</h2>
+                        <div class="hero-card-role">B.Tech in Artificial Intelligence &amp; Machine Learning</div>
+                        <div class="hero-card-institution">Dayananda Sagar University, Bangalore</div>
+                        <div class="hero-card-meta">
+                            <span>School of Engineering • Class of 2029</span>
+                        </div>
+
+                        <div class="hero-focus-tags">
+                            <span class="badge badge-neutral">Python</span>
+                            <span class="badge badge-neutral">C++ (DSA)</span>
+                            <span class="badge badge-neutral">Core Java</span>
+                            <span class="badge badge-neutral">PyTorch</span>
+                            <span class="badge badge-green">Kaggle Top 18%</span>
+                        </div>
+
+                        <div class="social-links-bar">
+                            <a href="https://github.com/sathviik27" target="_blank" class="social-icon-btn" aria-label="GitHub">
+                                <i data-lucide="github" style="width: 16px; height: 16px;"></i>
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" class="social-icon-btn" aria-label="LinkedIn">
+                                <i data-lucide="linkedin" style="width: 16px; height: 16px;"></i>
+                            </a>
+                            <a href="https://kaggle.com" target="_blank" class="social-icon-btn" aria-label="Kaggle">
+                                <i data-lucide="award" style="width: 16px; height: 16px;"></i>
+                            </a>
+                            <a href="https://huggingface.co" target="_blank" class="social-icon-btn" aria-label="Hugging Face">
+                                <i data-lucide="smile" style="width: 16px; height: 16px;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Foundations & Philosophy Bento Section -->
+        <section class="section" id="about">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag badge badge-neutral">
+                        First-Year Foundations
+                    </span>
+                    <h2 class="section-title">Quiet discipline. <span class="apple-silver-text">Deep understanding.</span></h2>
+                    <p class="section-desc">
+                        Mastering core programming languages, mathematical foundations, and data structures at Dayananda Sagar University.
+                    </p>
+                </div>
+
+                <div class="bento-grid">
+                    <!-- Bento Tile 1: Philosophy -->
+                    <div class="apple-card bento-col-7 bento-about-curiosity">
+                        <div>
+                            <div class="bento-badge-row">
+                                <span class="badge badge-neutral">Core Philosophy</span>
+                                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim);">YEAR 01 • DSU</span>
+                            </div>
+                            <h3 style="font-size: 1.35rem; margin-bottom: 0.8rem; color: var(--text-white);">
+                                Learn the mechanics before the abstractions.
+                            </h3>
+                            <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.65; margin-bottom: 1.2rem;">
+                                In an era where AI tools are ubiquitous, the deepest edge comes from foundational mastery: understanding pointer arithmetic in C++, object-oriented design in Core Java, vectorized matrix math in Python, and the partial derivatives that drive backpropagation.
+                            </p>
+                        </div>
+                        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+                            <span class="badge badge-neutral">C++ &amp; Memory</span>
+                            <span class="badge badge-neutral">Core Java Architecture</span>
+                            <span class="badge badge-neutral">Python AI Stack</span>
+                        </div>
+                    </div>
+
+                    <!-- Bento Tile 2: Consistency Activity -->
+                    <div class="apple-card bento-col-5">
+                        <div class="bento-badge-row">
+                            <span class="badge badge-green">Daily Practice</span>
+                            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">100 Days of Code</span>
+                        </div>
+                        <h3 style="font-size: 1.2rem; margin-bottom: 0.35rem;">Engineering Consistency</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.82rem;">
+                            Daily problem-solving in DSA (C++), Java class design, and PyTorch model experimentation.
+                        </p>
+                        <div class="git-activity-card">
+                            <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">
+                                <span>Commit Activity</span>
+                                <span style="color: var(--accent-green);">480+ contributions</span>
+                            </div>
+                            <div class="git-grid-visual">
+                                <div class="git-cell lvl-2"></div>
+                                <div class="git-cell lvl-3"></div>
+                                <div class="git-cell lvl-1"></div>
+                                <div class="git-cell lvl-rind"></div>
+                                <div class="git-cell lvl-2"></div>
+                                <div class="git-cell lvl-1"></div>
+                                <div class="git-cell lvl-3"></div>
+                                <div class="git-cell lvl-rind"></div>
+                                <div class="git-cell lvl-1"></div>
+                                <div class="git-cell lvl-2"></div>
+                                <div class="git-cell lvl-3"></div>
+                                <div class="git-cell lvl-rind"></div>
+                                <div class="git-cell lvl-2"></div>
+                                <div class="git-cell lvl-1"></div>
+                                <div class="git-cell lvl-3"></div>
+                                <div class="git-cell lvl-rind"></div>
+
+                                <div class="git-cell lvl-1"></div>
+                                <div class="git-cell lvl-2"></div>
+                                <div class="git-cell lvl-rind"></div>
+                                <div class="git-cell lvl-3"></div>
+                                <div class="git-cell lvl-1"></div>
+                                <div class="git-cell lvl-rind"></div>
+                                <div class="git-cell lvl-2"></div>
+                                <div class="git-cell lvl-1"></div>
+                                <div class="git-cell lvl-3"></div>
+                                <div class="git-cell lvl-rind"></div>
+                                <div class="git-cell lvl-1"></div>
+                                <div class="git-cell lvl-2"></div>
+                                <div class="git-cell lvl-3"></div>
+                                <div class="git-cell lvl-rind"></div>
+                                <div class="git-cell lvl-2"></div>
+                                <div class="git-cell lvl-3"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bento Tile 3: Core Coursework -->
+                    <div class="apple-card bento-col-12">
+                        <div class="bento-badge-row">
+                            <span class="badge badge-neutral">Dayananda Sagar University</span>
+                            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim);">1st-Year AI &amp; ML Syllabus</span>
+                        </div>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.3rem;">Undergraduate Coursework</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.88rem;">
+                            Rigorous engineering curriculum combining computer science theory with mathematics.
+                        </p>
+                        <div class="coursework-list" id="coursework-list">
+                            <!-- Injected by app.js -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Toolkit Section -->
+        <section class="section" id="skills">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag badge badge-neutral">
+                        Technical Stack
+                    </span>
+                    <h2 class="section-title">Languages &amp; Frameworks</h2>
+                    <p class="section-desc">
+                        Proficiencies spanning Python, C++, Core Java, and specialized machine learning libraries.
+                    </p>
+                </div>
+
+                <div class="skills-container" id="skills-container">
+                    <!-- Injected by app.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive AI Studio Section -->
+        <section class="section" id="playground">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag badge badge-green">
+                        Live In-Browser Inference
+                    </span>
+                    <h2 class="section-title">Interactive <span class="apple-silver-text">AI Studio</span></h2>
+                    <p class="section-desc">
+                        Lightweight neural network inference and optimization models running directly inside your browser.
+                    </p>
+                </div>
+
+                <div class="playground-wrapper">
+                    <!-- Studio Navigation Tabs -->
+                    <div class="playground-nav-tabs">
+                        <button class="playground-tab-btn active" data-tab="tab-digit">
+                            VisionDigit (Draw &amp; Predict)
+                        </button>
+                        <button class="playground-tab-btn" data-tab="tab-sentiment">
+                            SentimentPulse (NLP Stream)
+                        </button>
+                        <button class="playground-tab-btn" data-tab="tab-loss">
+                            GradientLoss (SGD Visualizer)
+                        </button>
+                    </div>
+
+                    <!-- TAB 1: Digit Recognizer -->
+                    <div class="tab-pane active" id="tab-digit">
+                        <div class="digit-demo-grid">
+                            <!-- Left: Canvas -->
+                            <div class="digit-canvas-box">
+                                <div style="display: flex; justify-content: space-between; width: 100%; margin-bottom: 0.6rem; font-size: 0.75rem; font-family: var(--font-mono); color: var(--text-muted);">
+                                    <span>28x28 INFERENCE CANVAS</span>
+                                    <span>DRAW DIGIT</span>
+                                </div>
+                                <canvas id="digit-canvas"></canvas>
+                                <div class="canvas-controls">
+                                    <button class="btn btn-glass btn-sm" id="clear-canvas-btn">
+                                        Clear Canvas
+                                    </button>
+                                </div>
+
+                                <div style="margin-top: 0.8rem; width: 100%;">
+                                    <div style="font-size: 0.72rem; color: var(--text-dim); margin-bottom: 0.3rem;">Presets:</div>
+                                    <div style="display: flex; gap: 0.3rem; justify-content: space-between;">
+                                        <button class="sample-chip digit-sample-btn" data-digit="0">0</button>
+                                        <button class="sample-chip digit-sample-btn" data-digit="1">1</button>
+                                        <button class="sample-chip digit-sample-btn" data-digit="2">2</button>
+                                        <button class="sample-chip digit-sample-btn" data-digit="3">3</button>
+                                        <button class="sample-chip digit-sample-btn" data-digit="7">7</button>
+                                        <button class="sample-chip digit-sample-btn" data-digit="8">8</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right: Distribution -->
+                            <div class="digit-results-box">
+                                <div class="digit-top-prediction">
+                                    <div class="digit-predicted-badge" id="predicted-digit-display">-</div>
+                                    <div>
+                                        <span class="badge badge-neutral" style="margin-bottom: 0.3rem;">Classification</span>
+                                        <h3 style="font-size: 1.3rem; color: var(--text-white);">Top Prediction</h3>
+                                        <div style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent-green);" id="confidence-val-display">0.0%</div>
+                                    </div>
+                                </div>
+
+                                <div class="prediction-probability-bars">
+                                    <div class="prob-row"><span class="prob-digit">0</span><div class="prob-track"><div class="prob-fill" id="prob-fill-0"></div></div><span class="prob-value" id="prob-val-0">0%</span></div>
+                                    <div class="prob-row"><span class="prob-digit">1</span><div class="prob-track"><div class="prob-fill" id="prob-fill-1"></div></div><span class="prob-value" id="prob-val-1">0%</span></div>
+                                    <div class="prob-row"><span class="prob-digit">2</span><div class="prob-track"><div class="prob-fill" id="prob-fill-2"></div></div><span class="prob-value" id="prob-val-2">0%</span></div>
+                                    <div class="prob-row"><span class="prob-digit">3</span><div class="prob-track"><div class="prob-fill" id="prob-fill-3"></div></div><span class="prob-value" id="prob-val-3">0%</span></div>
+                                    <div class="prob-row"><span class="prob-digit">4</span><div class="prob-track"><div class="prob-fill" id="prob-fill-4"></div></div><span class="prob-value" id="prob-val-4">0%</span></div>
+                                    <div class="prob-row"><span class="prob-digit">5</span><div class="prob-track"><div class="prob-fill" id="prob-fill-5"></div></div><span class="prob-value" id="prob-val-5">0%</span></div>
+                                    <div class="prob-row"><span class="prob-digit">6</span><div class="prob-track"><div class="prob-fill" id="prob-fill-6"></div></div><span class="prob-value" id="prob-val-6">0%</span></div>
+                                    <div class="prob-row"><span class="prob-digit">7</span><div class="prob-track"><div class="prob-fill" id="prob-fill-7"></div></div><span class="prob-value" id="prob-val-7">0%</span></div>
+                                    <div class="prob-row"><span class="prob-digit">8</span><div class="prob-track"><div class="prob-fill" id="prob-fill-8"></div></div><span class="prob-value" id="prob-val-8">0%</span></div>
+                                    <div class="prob-row"><span class="prob-digit">9</span><div class="prob-track"><div class="prob-fill" id="prob-fill-9"></div></div><span class="prob-value" id="prob-val-9">0%</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 2: Sentiment NLP -->
+                    <div class="tab-pane" id="tab-sentiment">
+                        <div class="sentiment-demo-box">
+                            <div class="sentiment-input-area">
+                                <label class="form-label" for="sentiment-input">Input review or prompt:</label>
+                                <textarea id="sentiment-input" class="sentiment-textarea" placeholder="e.g. This deep learning architecture is exceptionally fast, elegant, and efficient."></textarea>
+                                
+                                <div class="sample-prompts">
+                                    <span style="font-size: 0.72rem; color: var(--text-dim); display: flex; align-items: center;">Try sample:</span>
+                                    <button class="sample-chip" data-text="The Transformer attention mechanism is clean, fast and flawless.">Positive Sentiment</button>
+                                    <button class="sample-chip" data-text="The gradient exploded due to learning rate divergence and caused an error.">Negative Sentiment</button>
+                                    <button class="sample-chip" data-text="The dataset contains 10,000 rows with 42 continuous features.">Neutral Benchmark</button>
+                                </div>
+                            </div>
+
+                            <div class="sentiment-result-meter">
+                                <div id="sentiment-status-banner" class="sentiment-status-banner positive">
+                                    Positive Sentiment (+88%)
+                                </div>
+
+                                <div style="display: flex; flex-direction: column; gap: 0.9rem; margin-top: 1rem;">
+                                    <div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 0.2rem;">
+                                            <span style="color: var(--text-secondary);">Polarity Score (-1.0 to +1.0)</span>
+                                            <span id="polarity-meter-val" style="font-family: var(--font-mono); color: var(--accent-green);">+0.85</span>
+                                        </div>
+                                        <div class="skill-bar-track">
+                                            <div class="skill-bar-fill" id="polarity-meter-fill" style="width: 85%;"></div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 0.2rem;">
+                                            <span style="color: var(--text-secondary);">Confidence Metric</span>
+                                            <span id="subjectivity-meter-val" style="font-family: var(--font-mono); color: var(--text-white);">75%</span>
+                                        </div>
+                                        <div class="skill-bar-track">
+                                            <div class="skill-bar-fill" id="subjectivity-meter-fill" style="width: 75%; background: var(--text-muted);"></div>
+                                        </div>
+                                    </div>
+
+                                    <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--border-hairline); padding-top: 0.8rem; font-size: 0.78rem;">
+                                        <span style="color: var(--text-dim);">DistilBERT Quantized Pipeline</span>
+                                        <span id="sentiment-conf-val" style="color: var(--text-secondary); font-family: var(--font-mono);">94.8%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 3: Loss Visualizer -->
+                    <div class="tab-pane" id="tab-loss">
+                        <div class="loss-visualizer-grid">
+                            <div>
+                                <canvas id="loss-canvas"></canvas>
+                                <div style="display: flex; justify-content: space-between; margin-top: 0.5rem; font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted);">
+                                    <span>— Training Loss</span>
+                                    <span>--- Validation Loss</span>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                                <div>
+                                    <span class="badge badge-neutral">Optimization Dynamics</span>
+                                    <h3 style="font-size: 1.25rem; margin-top: 0.4rem; color: var(--text-white);">SGD Backpropagation Loop</h3>
+                                    <p style="color: var(--text-secondary); font-size: 0.82rem; margin-top: 0.2rem;">
+                                        Observe gradient descent convergence dynamics over 35 training epochs.
+                                    </p>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Learning Rate (&alpha;):</label>
+                                    <select id="lr-select" class="form-input" style="padding: 0.45rem 0.75rem; font-family: var(--font-mono);">
+                                        <option value="0.005">0.005 (Conservative)</option>
+                                        <option value="0.01" selected>0.01 (Optimal Convergence)</option>
+                                        <option value="0.04">0.04 (Aggressive)</option>
+                                    </select>
+                                </div>
+
+                                <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-hairline); border-radius: var(--radius-md); padding: 0.8rem;">
+                                    <div style="font-size: 0.75rem; color: var(--text-muted);">Status: <span id="training-status-text" style="color: var(--accent-green);">Idle</span></div>
+                                    <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.82rem; margin-top: 0.3rem;">
+                                        <span>Epoch: <strong id="current-epoch-val" style="color: var(--text-white);">0/35</strong></span>
+                                        <span>Loss: <strong id="current-loss-val" style="color: var(--text-white);">2.4500</strong></span>
+                                    </div>
+                                </div>
+
+                                <div style="display: flex; gap: 0.6rem;">
+                                    <button class="btn btn-primary-white btn-sm" id="train-model-btn" style="flex: 1;">
+                                        Train Model
+                                    </button>
+                                    <button class="btn btn-glass btn-sm" id="reset-loss-btn">
+                                        Reset
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects Section -->
+        <section class="section" id="projects">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag badge badge-neutral">
+                        Selected Works
+                    </span>
+                    <h2 class="section-title">Projects &amp; Systems</h2>
+                    <p class="section-desc">
+                        Engineering projects across Python, C++, Core Java, and neural architectures.
+                    </p>
+                </div>
+
+                <!-- Filter Bar -->
+                <div class="projects-filter-bar">
+                    <button class="filter-btn active" data-filter="all">All (4)</button>
+                    <button class="filter-btn" data-filter="Computer Vision">Computer Vision</button>
+                    <button class="filter-btn" data-filter="Core Java">Core Java &amp; Systems</button>
+                    <button class="filter-btn" data-filter="Natural Language Processing">NLP</button>
+                    <button class="filter-btn" data-filter="Generative AI">RAG &amp; Vector</button>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Injected by app.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Engineering Journal & Technical Blogs Section -->
+        <section class="section" id="journal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag badge badge-neutral">
+                        Engineering Journal
+                    </span>
+                    <h2 class="section-title">Technical Writing &amp; Notes</h2>
+                    <p class="section-desc">
+                        Deep-dives into mathematical proofs, C++ vs Java systems design, and building machine learning algorithms from scratch.
+                    </p>
+                </div>
+
+                <!-- Journal Grid -->
+                <div class="journal-grid" id="journal-grid">
+                    <!-- Injected by app.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Academic Roadmap & Trajectory Section -->
+        <section class="section" id="roadmap">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag badge badge-neutral">
+                        Four-Year Trajectory
+                    </span>
+                    <h2 class="section-title">Academic &amp; Research Roadmap</h2>
+                    <p class="section-desc">
+                        Milestone plan from first-year foundations at Dayananda Sagar University to advanced systems and research.
+                    </p>
+                </div>
+
+                <div class="roadmap-timeline" id="roadmap-timeline">
+                    <!-- Injected by app.js -->
+                </div>
+
+                <!-- Certifications Grid -->
+                <div style="max-width: 820px; margin: 2.5rem auto 0 auto;">
+                    <h3 style="font-size: 1.15rem; margin-bottom: 1rem; color: var(--text-white);">
+                        Completed Specializations
+                    </h3>
+                    <div class="cert-grid" id="cert-grid">
+                        <!-- Injected by app.js -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section" id="contact">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag badge badge-neutral">
+                        Get In Touch
+                    </span>
+                    <h2 class="section-title">Connect &amp; Collaborate</h2>
+                    <p class="section-desc">
+                        Open for research opportunities, summer internships, and technical discussions.
+                    </p>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Left: Info & Copy -->
+                    <div class="contact-info-card">
+                        <h3 style="font-size: 1.3rem; margin-bottom: 0.4rem; color: var(--text-white);">Direct Channels</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.88rem; line-height: 1.55;">
+                            Feel free to reach out directly via email or copy contact credentials below.
+                        </p>
+
+                        <div class="quick-copy-box">
+                            <div class="copy-pill" data-copy="sathvik.aiml@dsu.edu.in" title="Click to copy email">
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <i data-lucide="mail" style="width: 14px; height: 14px; color: var(--text-muted);"></i>
+                                    <span>sathvik.aiml@dsu.edu.in</span>
+                                </div>
+                                <span style="font-size: 0.72rem; color: var(--text-dim);">Copy</span>
+                            </div>
+
+                            <div class="copy-pill" data-copy="sathvik_aiml#2029" title="Click to copy Discord handle">
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <i data-lucide="message-circle" style="width: 14px; height: 14px; color: var(--text-muted);"></i>
+                                    <span>Discord: sathvik_aiml#2029</span>
+                                </div>
+                                <span style="font-size: 0.72rem; color: var(--text-dim);">Copy</span>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 1.8rem;">
+                            <div style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.6rem; color: var(--text-secondary);">Social Platforms</div>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="https://github.com/sathviik27" target="_blank" class="social-icon-btn" aria-label="GitHub"><i data-lucide="github"></i></a>
+                                <a href="https://linkedin.com" target="_blank" class="social-icon-btn" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                                <a href="https://kaggle.com" target="_blank" class="social-icon-btn" aria-label="Kaggle"><i data-lucide="award"></i></a>
+                                <a href="https://x.com" target="_blank" class="social-icon-btn" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Contact Form -->
+                    <form class="contact-form" id="contact-form">
+                        <h3 style="font-size: 1.25rem; color: var(--text-white); margin-bottom: 0.2rem;">Send a Message</h3>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="contact-name">Name</label>
+                            <input type="text" id="contact-name" class="form-input" placeholder="Your Name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="contact-email">Email Address</label>
+                            <input type="email" id="contact-email" class="form-input" placeholder="name@domain.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="contact-message">Message</label>
+                            <textarea id="contact-message" class="form-textarea" placeholder="Your message or research inquiry..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary-white">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Apple Minimalist Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div style="display: flex; align-items: center; gap: 0.6rem;">
+                <span style="font-family: var(--font-heading); font-weight: 700; font-size: 0.95rem;">Sathvik</span>
+                <span class="footer-meta">© 2026 • Dayananda Sagar University (DSU) AI &amp; ML</span>
+            </div>
+
+            <div class="footer-heartbeat">
+                <span class="pulse-dot"></span>
+                <span>Python • C++ • Core Java</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Architecture Modal -->
+    <div class="modal-overlay" id="project-modal">
+        <div class="modal-content">
+            <button class="modal-close-btn" aria-label="Close Modal">
+                <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+            </button>
+            <h3 id="modal-project-title" style="font-size: 1.4rem; margin-bottom: 0.8rem; color: var(--text-white);"></h3>
+            <div id="modal-project-body"></div>
+        </div>
+    </div>
+
+    <!-- Resume Modal -->
+    <div class="modal-overlay" id="resume-modal">
+        <div class="modal-content" style="max-width: 760px;">
+            <button class="modal-close-btn" aria-label="Close Modal">
+                <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+            </button>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-hairline); padding-bottom: 1rem;">
+                <div>
+                    <h3 style="font-size: 1.4rem; color: var(--text-white);">Sathvik — Curriculum Vitae</h3>
+                    <p style="font-size: 0.82rem; color: var(--text-muted); font-family: var(--font-mono);">Dayananda Sagar University • AI &amp; ML Engineering</p>
+                </div>
+                <button class="btn btn-primary-white btn-sm" onclick="window.print()">
+                    Print / PDF
+                </button>
+            </div>
+
+            <!-- Resume Content -->
+            <div style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; display: flex; flex-direction: column; gap: 1.2rem;">
+                <div>
+                    <h4 style="color: var(--text-white); font-size: 0.95rem; margin-bottom: 0.3rem;">EDUCATION</h4>
+                    <p><strong style="color: var(--text-white);">Dayananda Sagar University (DSU), Bangalore</strong></p>
+                    <p>B.Tech in Artificial Intelligence &amp; Machine Learning (2025 – 2029) • Current CGPA: 9.4/10.0</p>
+                    <p style="font-size: 0.82rem; color: var(--text-muted);">Relevant Coursework: Data Structures in C++, OOP in Core Java, Python for Data Science, Linear Algebra, Calculus</p>
+                </div>
+
+                <div>
+                    <h4 style="color: var(--text-white); font-size: 0.95rem; margin-bottom: 0.3rem;">CORE TECHNICAL TOOLKIT</h4>
+                    <p><strong>Languages:</strong> Python 3.11+, C++, Core Java (JDK 21), SQL, Bash</p>
+                    <p><strong>Machine Learning &amp; AI:</strong> PyTorch, OpenCV, Scikit-Learn, NumPy, Pandas, Transformers</p>
+                    <p><strong>Systems &amp; Tools:</strong> Git, Linux, JVM Memory Tuning, FastAPI, ChromaDB</p>
+                </div>
+
+                <div>
+                    <h4 style="color: var(--text-white); font-size: 0.95rem; margin-bottom: 0.3rem;">FEATURED REPOSITORIES</h4>
+                    <p><strong style="color: var(--text-white);">VisionDigit (CNN MNIST):</strong> Lightweight PyTorch convolutional network with live canvas inference.</p>
+                    <p><strong style="color: var(--text-white);">JavaMatrix Engine:</strong> Pure Core Java multi-dimensional tensor computation and automatic differentiation without external dependencies.</p>
+                    <p><strong style="color: var(--text-white);">DSU CourseSpark:</strong> ChromaDB + LangChain course material question-answering assistant.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/ai-playground.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
